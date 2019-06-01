@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_ecommerce/src/screens/login_screen.dart';
+import 'package:flutter_ecommerce/src/screens/start_screen.dart';
 
 class App extends StatefulWidget {
   @override
@@ -33,10 +34,21 @@ class _RunMaterialAppState extends State<RunMaterialApp> {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: "Flutter E-commerce",
-      home: LoginScreen(),
+      home: StartScreen(),
       theme: ThemeData(
         brightness: Brightness.dark,
+        textTheme: TextTheme(
+            body1: TextStyle(
+              fontWeight: FontWeight.w300,
+            ),
+          title: TextStyle(fontWeight: FontWeight.w300, fontSize: 24.0),
+        ),
+        accentColor: Colors.white.withOpacity(0.8),
+        cursorColor: Colors.white.withOpacity(0.8),
       ),
+      routes: {
+        '/login': (BuildContext context) => LoginScreen(),
+      },
     );
   }
 }
