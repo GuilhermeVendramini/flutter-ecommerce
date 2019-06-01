@@ -41,7 +41,7 @@ class ButtonLogin extends StatelessWidget{
           borderRadius: BorderRadius.circular(30.0),
         ),
         onPressed: () => {
-          //Navigator.pushReplacementNamed(context, '/login'),
+          Navigator.pushReplacementNamed(context, '/swipe'),
         },
       ),
     );

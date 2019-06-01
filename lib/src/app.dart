@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_ecommerce/src/screens/login_screen.dart';
 import 'package:flutter_ecommerce/src/screens/register_screen.dart';
 import 'package:flutter_ecommerce/src/screens/start_screen.dart';
+import 'package:flutter_ecommerce/src/screens/swipe_screen.dart';
 
 class App extends StatefulWidget {
   @override
@@ -50,6 +51,7 @@ class _RunMaterialAppState extends State<RunMaterialApp> {
       routes: {
         '/login': (BuildContext context) => LoginScreen(),
         '/register': (BuildContext context) => RegisterScreen(),
+        '/swipe': (BuildContext context) => SwipeScreen(),
       },
     );
   }
