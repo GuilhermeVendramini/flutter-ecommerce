@@ -3,14 +3,14 @@ import 'package:flutter_ecommerce/src/widgets/components/backgrounds.dart';
 import 'package:flutter_ecommerce/src/widgets/elements/buttons.dart';
 import 'package:flutter_ecommerce/src/widgets/elements/inputs.dart';
 
-class LoginScreen extends StatefulWidget {
+class RegisterScreen extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {
-    return _LoginScreenSate();
+    return _RegisterScreenSate();
   }
 }
 
-class _LoginScreenSate extends State<LoginScreen> {
+class _RegisterScreenSate extends State<RegisterScreen> {
   @override
   Widget build(BuildContext context) {
     final double deviceWidth = MediaQuery.of(context).size.width;
@@ -32,7 +32,7 @@ class _LoginScreenSate extends State<LoginScreen> {
                     child: SingleChildScrollView(
                       child: ConstrainedBox(
                           constraints:
-                              BoxConstraints(minHeight: constraints.maxHeight),
+                          BoxConstraints(minHeight: constraints.maxHeight),
                           child: IntrinsicHeight(
                             child: Form(
                               child: Column(
@@ -41,7 +41,7 @@ class _LoginScreenSate extends State<LoginScreen> {
                                   children: [
                                     Spacer(),
                                     Text(
-                                      'Welcome back!',
+                                      'Create an account',
                                       style: Theme.of(context).textTheme.title,
                                     ),
                                     Spacer(),
@@ -50,15 +50,24 @@ class _LoginScreenSate extends State<LoginScreen> {
                                       height: 40.0,
                                     ),
                                     InputPassword(),
+                                    SizedBox(
+                                      height: 40.0,
+                                    ),
+                                    InputConfirmPassword(),
+                                    SizedBox(
+                                      height: 40.0,
+                                    ),
+                                    InputEmail(),
                                     Spacer(),
                                     SizedBox(
                                       height: 20.0,
                                     ),
-                                    ButtonLogin(),
+                                    ButtonRegister(),
                                     SizedBox(
                                       height: 20.0,
                                     ),
-                                    Text('Forgot password?'),
+                                    Text('By creating an account you agree to our'),
+                                    Text('User Agreement and Privacy policy.'),
                                     Spacer(),
                                   ]),
                             ),

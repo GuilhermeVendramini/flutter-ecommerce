@@ -31,3 +31,36 @@ class InputPassword extends StatelessWidget {
     );
   }
 }
+
+class InputConfirmPassword extends StatelessWidget {
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      child: TextFormField(
+        textAlign: TextAlign.center,
+        decoration: InputDecoration(
+          labelText: 'Confirm password',
+          fillColor: Colors.transparent,
+        ),
+        obscureText: true,
+      ),
+    );
+  }
+}
+
+class InputEmail extends StatelessWidget {
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      child: TextFormField(
+        textAlign: TextAlign.center,
+        decoration: InputDecoration(
+          labelText: 'E-mail',
+          fillColor: Colors.transparent,
+        ),
+      ),
+    );
+  }
+}

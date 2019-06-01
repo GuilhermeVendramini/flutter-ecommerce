@@ -66,7 +66,35 @@ class ButtonRegister extends StatelessWidget {
           borderRadius: BorderRadius.circular(30.0),
           side: BorderSide(color: Colors.white),
         ),
-        onPressed: () => {},
+        onPressed: () => {
+          Navigator.pushReplacementNamed(context, '/'),
+        },
+      ),
+    );
+  }
+}
+
+class ButtonRegisterSreen extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      height: 50.0,
+      width: 300.0,
+      child: RaisedButton(
+        child: Text(
+          'CREATE AN ACCOUNT',
+          style: TextStyle(
+            fontWeight: FontWeight.w300,
+          ),
+        ),
+        color: Colors.transparent,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(30.0),
+          side: BorderSide(color: Colors.white),
+        ),
+        onPressed: () => {
+          Navigator.pushReplacementNamed(context, '/register'),
+        },
       ),
     );
   }

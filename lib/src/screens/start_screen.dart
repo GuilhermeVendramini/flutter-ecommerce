@@ -46,7 +46,7 @@ class _StartScreenSate extends State<StartScreen> {
                                 SizedBox(
                                   height: 20.0,
                                 ),
-                                ButtonRegister(),
+                                ButtonRegisterSreen(),
                                 Spacer(),
                               ]
                           ),
