@@ -39,6 +39,7 @@ class GestureCardDeck extends StatefulWidget {
     @required this.onSwipeRight,
     @required this.onSwipeLeft,
   }) : super(key: key);
+
   @override
   GestureCardDeckState createState() => new GestureCardDeckState();
 }
@@ -54,6 +55,7 @@ class GestureCardDeckState extends State<GestureCardDeck>
   List showData;
   List selectedData = [];
   static int i = 0;
+
   void initState() {
     super.initState();
     data = widget.data;
@@ -96,6 +98,14 @@ class GestureCardDeckState extends State<GestureCardDeck>
     double backCardPosition = widget.topPosition;
     double backCardLeftPosition = widget.leftPosition;
     double backCardWidth = -10.0;
+    if (showData.isEmpty) {
+      Future.delayed(const Duration(milliseconds: 500), () {
+        Navigator.pushReplacementNamed(context, '/login');
+      });
+      return Center(
+        child: CircularProgressIndicator(),
+      );
+    }
     return new Stack(
       key: Key(key),
       alignment: AlignmentDirectional.center,
