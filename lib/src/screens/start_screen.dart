@@ -16,7 +16,7 @@ class _StartScreenSate extends State<StartScreen> {
     final double deviceWidth = MediaQuery.of(context).size.width;
     final double targetWidth = deviceWidth > 650.0 ? 600.0 : deviceWidth * 0.95;
     return Scaffold(
-      body:LayoutBuilder(builder: (context, constraints) {
+      body: LayoutBuilder(builder: (context, constraints) {
         return Container(
           child: Stack(
             fit: StackFit.expand,
@@ -27,8 +27,10 @@ class _StartScreenSate extends State<StartScreen> {
                   width: targetWidth,
                   child: SingleChildScrollView(
                     child: ConstrainedBox(
-                        constraints: BoxConstraints(minHeight: constraints.maxHeight),
-                        child: IntrinsicHeight(
+                      constraints:
+                          BoxConstraints(minHeight: constraints.maxHeight),
+                      child: IntrinsicHeight(
+                        child: Form(
                           child: Column(
                               mainAxisSize: MainAxisSize.max,
                               crossAxisAlignment: CrossAxisAlignment.center,
@@ -48,9 +50,9 @@ class _StartScreenSate extends State<StartScreen> {
                                 ),
                                 ButtonRegisterSreen(),
                                 Spacer(),
-                              ]
-                          ),
-                        )
+                              ]),
+                        ),
+                      ),
                     ),
                   ),
                 ),
