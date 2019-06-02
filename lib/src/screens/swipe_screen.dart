@@ -15,9 +15,7 @@ class _SwipeScreenSate extends State<SwipeScreen> {
   @override
   Widget build(BuildContext context) {
     final _swipeData = Provider.of<SwipeService>(context);
-    final double deviceWidth = MediaQuery.of(context).size.width;
-    final double targetWidth = deviceWidth > 650.0 ? 600.0 : deviceWidth * 0.95;
-
+    
     if (_swipeData.isSwipeLoaded == null) {
       _swipeData.loadSwipe();
     }
@@ -35,14 +33,26 @@ class _SwipeScreenSate extends State<SwipeScreen> {
                 BackgroundImageBlur(),
                 Center(
                   child: Container(
-                    width: targetWidth,
                     child: SingleChildScrollView(
-                      child: ConstrainedBox(
-                          constraints: BoxConstraints(minHeight: constraints.maxHeight),
-                          child: IntrinsicHeight(
+                      child: Column(
+                        children: <Widget>[
+                          SizedBox(
+                            height: 40.0,
+                          ),
+                          Text(
+                            'Choose interested',
+                            style: Theme.of(context).textTheme.title,
+                          ),
+                          Text(
+                            'themes',
+                            style: Theme.of(context).textTheme.title,
+                          ),
+                          Container(
+                            width: 410,
+                            height: 600,
                             child: GestureCardDeck(
                               isButtonFixed: true,
-                              fixedButtonPosition: Offset(50, 580),
+                              fixedButtonPosition: Offset(50, 480),
                               data: _swipeData.getSwipeCards,
                               animationTime: Duration(milliseconds: 500),
                               showAsDeck: true,
@@ -50,24 +60,35 @@ class _SwipeScreenSate extends State<SwipeScreen> {
                               leftSwipeButton: Container(
                                 height: 50,
                                 width: 150,
-                                decoration: BoxDecoration(
+/*                                decoration: BoxDecoration(
                                     color: Color.fromRGBO(61, 135, 160, 1),
                                     borderRadius: BorderRadius.all(
                                       Radius.circular(8),
-                                    )),
-                                child:
-                                Center(child: Text("NOPE", style: TextStyle(color: Colors.white))),
+                                    )),*/
+                                child: Center(
+                                  child: Icon(
+                                    Icons.clear,
+                                    size: 60.0,
+                                  ),
+                                ),
+                                //Center(child: Text("NOPE", style: TextStyle(color: Colors.white))),
                               ),
                               rightSwipeButton: Container(
                                 height: 50,
                                 width: 150,
-                                decoration: BoxDecoration(
+                                /*                 decoration: BoxDecoration(
                                     color: Color.fromRGBO(95, 169, 194, 1),
                                     borderRadius: BorderRadius.all(
                                       Radius.circular(8),
-                                    )),
-                                child:
-                                Center(child: Text("YEAH", style: TextStyle(color: Colors.white))),
+                                    )),*/
+                                child: Center(
+                                  child: Icon(
+                                    Icons.check,
+                                    size: 60.0,
+                                    color: Theme.of(context).buttonColor,
+                                  ),
+                                ),
+                                //Center(child: Text("YEAH", style: TextStyle(color: Colors.white))),
                               ),
                               onSwipeLeft: (index) {
                                 print("on swipe left");
@@ -82,15 +103,17 @@ class _SwipeScreenSate extends State<SwipeScreen> {
                                 print(index);
                               },
                               leftPosition: 50,
-                              topPosition: 90,
+                              topPosition: 10,
                               leftSwipeBanner: Padding(
                                 padding: const EdgeInsets.all(32.0),
                                 child: Transform.rotate(
                                   angle: 0.5,
                                   child: Container(
                                     decoration: BoxDecoration(
-                                        border: Border.all(color: Colors.red, width: 2.0),
-                                        borderRadius: BorderRadius.all(Radius.circular(8))),
+                                        border: Border.all(
+                                            color: Colors.red, width: 2.0),
+                                        borderRadius: BorderRadius.all(
+                                            Radius.circular(8))),
                                     child: Padding(
                                       padding: const EdgeInsets.all(8.0),
                                       child: Text("NOPE",
@@ -108,8 +131,10 @@ class _SwipeScreenSate extends State<SwipeScreen> {
                                   angle: -0.5,
                                   child: Container(
                                     decoration: BoxDecoration(
-                                        border: Border.all(color: Colors.green, width: 2.0),
-                                        borderRadius: BorderRadius.all(Radius.circular(8))),
+                                        border: Border.all(
+                                            color: Colors.green, width: 2.0),
+                                        borderRadius: BorderRadius.all(
+                                            Radius.circular(8))),
                                     child: Padding(
                                       padding: const EdgeInsets.all(8.0),
                                       child: Text("YEAH",
@@ -122,7 +147,9 @@ class _SwipeScreenSate extends State<SwipeScreen> {
                                 ),
                               ),
                             ),
-                          )),
+                          ),
+                        ],
+                      ),
                     ),
                   ),
                 ),

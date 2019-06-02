@@ -24,6 +24,7 @@ class SwipeService extends Swipe {
       return null;
     }
 
+    _swipeCards = [];
     _swipeData = swipeData;
     _swipeData.forEach((item) {
       _swipeCards.add(SwipeCard(item));
