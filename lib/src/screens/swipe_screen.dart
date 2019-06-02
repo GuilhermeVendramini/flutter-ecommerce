@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_ecommerce/src/controllers/swipe/swipe_controller.dart';
+import 'package:provider/provider.dart';
 import 'package:flutter_ecommerce/src/widgets/components/backgrounds.dart';
-import 'package:flutter_ecommerce/src/data/swipe_data.dart';
-import 'package:flutter_ecommerce/src/swipe/gesture_card_deck.dart';
+import 'package:flutter_ecommerce/src/controllers/swipe/gesture_card_deck.dart';
 
 class SwipeScreen extends StatefulWidget {
   @override
@@ -13,8 +14,14 @@ class SwipeScreen extends StatefulWidget {
 class _SwipeScreenSate extends State<SwipeScreen> {
   @override
   Widget build(BuildContext context) {
+    final _swipeData = Provider.of<SwipeService>(context);
     final double deviceWidth = MediaQuery.of(context).size.width;
     final double targetWidth = deviceWidth > 650.0 ? 600.0 : deviceWidth * 0.95;
+
+    if (_swipeData.isSwipeLoaded == null) {
+      _swipeData.loadSwipe();
+    }
+
     return WillPopScope(
       onWillPop: () async {
         Navigator.pushReplacementNamed(context, '/login');
@@ -31,13 +38,12 @@ class _SwipeScreenSate extends State<SwipeScreen> {
                     width: targetWidth,
                     child: SingleChildScrollView(
                       child: ConstrainedBox(
-                          constraints:
-                          BoxConstraints(minHeight: constraints.maxHeight),
+                          constraints: BoxConstraints(minHeight: constraints.maxHeight),
                           child: IntrinsicHeight(
                             child: GestureCardDeck(
                               isButtonFixed: true,
                               fixedButtonPosition: Offset(50, 580),
-                              data: swipeData,
+                              data: _swipeData.getSwipeCards,
                               animationTime: Duration(milliseconds: 500),
                               showAsDeck: true,
                               velocityToSwipe: 1200,

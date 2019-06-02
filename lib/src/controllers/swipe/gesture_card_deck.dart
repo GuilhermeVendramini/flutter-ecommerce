@@ -1,5 +1,5 @@
 import 'dart:math';
-import 'package:flutter_ecommerce/src/swipe/current_deck_card.dart';
+import 'package:flutter_ecommerce/src/controllers/swipe/current_deck_card.dart';
 import 'package:flutter/material.dart';
 
 class GestureCardDeck extends StatefulWidget {

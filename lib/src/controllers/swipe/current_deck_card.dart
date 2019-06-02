@@ -1,4 +1,4 @@
-import 'package:flutter_ecommerce/src/swipe/gesture_card.dart';
+import 'package:flutter_ecommerce/src/controllers/swipe/gesture_card.dart';
 import 'package:flutter/material.dart';
 
 class CurrentDeckCard extends StatelessWidget {

@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:flutter_ecommerce/src/screens/login_screen.dart';
 import 'package:flutter_ecommerce/src/screens/register_screen.dart';
 import 'package:flutter_ecommerce/src/screens/start_screen.dart';
 import 'package:flutter_ecommerce/src/screens/swipe_screen.dart';
+
+import 'controllers/swipe/swipe_controller.dart';
 
 class App extends StatefulWidget {
   @override
@@ -14,13 +17,12 @@ class App extends StatefulWidget {
 class _AppState extends State<App> {
   @override
   Widget build(BuildContext context) {
-    return RunMaterialApp();
-/*    return MultiProvider(
+    return MultiProvider(
       providers: [
-        ChangeNotifierProvider<MyProvider>(builder: (_) => MyClass()),
+        ChangeNotifierProvider<SwipeService>(builder: (_) => SwipeService()),
       ],
-      child:  RunMaterialApp(),
-    );*/
+      child: RunMaterialApp(),
+    );
   }
 }
 
@@ -40,9 +42,9 @@ class _RunMaterialAppState extends State<RunMaterialApp> {
       theme: ThemeData(
         brightness: Brightness.dark,
         textTheme: TextTheme(
-            body1: TextStyle(
-              fontWeight: FontWeight.w300,
-            ),
+          body1: TextStyle(
+            fontWeight: FontWeight.w300,
+          ),
           title: TextStyle(fontWeight: FontWeight.w300, fontSize: 24.0),
         ),
         accentColor: Colors.white.withOpacity(0.8),
