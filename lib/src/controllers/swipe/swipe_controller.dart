@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_ecommerce/src/data/swipe_data.dart';
+import 'package:flutter_ecommerce/src/models/swipe_model.dart';
 import 'package:flutter_ecommerce/src/widgets/components/swipe_cards.dart';
 
 class SwipeController with ChangeNotifier {
@@ -27,7 +28,11 @@ class SwipeService extends Swipe {
     _swipeCards = [];
     _swipeData = swipeData;
     _swipeData.forEach((item) {
-      _swipeCards.add(SwipeCard(item));
+      SwipeModel  _swipe = SwipeModel(
+        title: item['title'],
+        image: 'assets/images/${item['image']}'
+      );
+      _swipeCards.add(SwipeCard(_swipe));
     });
     _isSwipeLoaded = true;
     return null;

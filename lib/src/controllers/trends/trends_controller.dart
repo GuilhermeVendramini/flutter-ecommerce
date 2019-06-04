@@ -1,14 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_ecommerce/src/data/trends_data.dart';
+import 'package:flutter_ecommerce/src/models/trend_model.dart';
 
 class TrendsController with ChangeNotifier {
   List<Map<String, dynamic>> _trendsData;
-  List<Map<String, dynamic>> _trendsItems = [];
+  List<TrendModel> _trendsItems = [];
   bool _isTrendsLoaded;
 }
 
 class Trends extends TrendsController {
-  List<Map<String, dynamic>> get getTrendsItems {
+  List<TrendModel> get getTrendsItems {
     return _trendsItems;
   }
 
@@ -26,7 +27,11 @@ class TrendsService extends Trends {
     _trendsItems = [];
     _trendsData = trendsData;
     _trendsData.forEach((item) {
-      _trendsItems.add(item);
+      TrendModel _trend = TrendModel(
+        title: item['title'],
+        image: 'assets/images/${item['image']}',
+      );
+      _trendsItems.add(_trend);
     });
     _isTrendsLoaded = true;
     return null;

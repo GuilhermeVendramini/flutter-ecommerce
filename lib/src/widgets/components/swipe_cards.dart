@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_ecommerce/src/models/swipe_model.dart';
 
 class SwipeCard extends StatelessWidget {
-  final Map<String, dynamic> _item;
+  final SwipeModel _item;
 
   SwipeCard(this._item);
 
@@ -14,13 +15,13 @@ class SwipeCard extends StatelessWidget {
       width: 300,
       decoration: BoxDecoration(
           image: DecorationImage(
-            image: ExactAssetImage('assets/images/${_item['image']}'),
+            image: ExactAssetImage(_item.image),
             fit: BoxFit.cover,
           ),
           borderRadius: BorderRadius.all(Radius.circular(8)),
       ),
       child: Text(
-        _item['title'],
+        _item.title,
         style: TextStyle(
           fontSize: 24.0,
           fontWeight: FontWeight.bold,
