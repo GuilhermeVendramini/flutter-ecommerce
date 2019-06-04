@@ -6,6 +6,7 @@ import 'package:flutter_ecommerce/src/screens/register_screen.dart';
 import 'package:flutter_ecommerce/src/screens/start_screen.dart';
 import 'package:flutter_ecommerce/src/screens/swipe_screen.dart';
 
+import 'package:flutter_ecommerce/src/controllers/trends/trends_controller.dart';
 import 'controllers/swipe/swipe_controller.dart';
 
 class App extends StatefulWidget {
@@ -20,7 +21,7 @@ class _AppState extends State<App> {
   Widget build(BuildContext context) {
     return MultiProvider(
       providers: [
-        ChangeNotifierProvider<SwipeService>(builder: (_) => SwipeService()),
+        Provider<SwipeService>(builder: (_) => SwipeService()),
       ],
       child: RunMaterialApp(),
     );
@@ -57,8 +58,8 @@ class _RunMaterialAppState extends State<RunMaterialApp> {
         canvasColor: ThemeData.dark().canvasColor.withOpacity(0.9),
         accentColor: Colors.white.withOpacity(0.8),
         cursorColor: Colors.white.withOpacity(0.8),
-        buttonColor: Colors.lightBlue[600],
-        appBarTheme: AppBarTheme(color: Colors.lightBlue[600]),
+        //buttonColor: Colors.lightBlue[600],
+        //appBarTheme: AppBarTheme(color: Colors.lightBlue[600]),
       ),
       routes: {
         '/login': (BuildContext context) => LoginScreen(),

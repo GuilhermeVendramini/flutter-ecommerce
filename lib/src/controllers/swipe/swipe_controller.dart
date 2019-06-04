@@ -29,6 +29,7 @@ class SwipeService extends Swipe {
     _swipeData.forEach((item) {
       _swipeCards.add(SwipeCard(item));
     });
+    _isSwipeLoaded = true;
     return null;
   }
 }

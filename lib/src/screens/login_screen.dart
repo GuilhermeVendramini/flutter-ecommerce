@@ -39,6 +39,9 @@ class _LoginScreenSate extends State<LoginScreen> {
                                   mainAxisSize: MainAxisSize.max,
                                   crossAxisAlignment: CrossAxisAlignment.center,
                                   children: [
+                                    SizedBox(
+                                      height: 40.0,
+                                    ),
                                     Spacer(),
                                     Text(
                                       'Welcome back!',

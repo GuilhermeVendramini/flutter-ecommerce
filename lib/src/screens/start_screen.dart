@@ -35,6 +35,9 @@ class _StartScreenSate extends State<StartScreen> {
                               mainAxisSize: MainAxisSize.max,
                               crossAxisAlignment: CrossAxisAlignment.center,
                               children: [
+                                SizedBox(
+                                  height: 40.0,
+                                ),
                                 Spacer(),
                                 AppName(),
                                 SizedBox(
