@@ -58,6 +58,15 @@ Widget sideDrawer(BuildContext context) {
               'Wishlist',
             ),
           ),
+          ListTile(
+            leading: Icon(Icons.explore),
+            title: Text(
+              'Explore',
+            ),
+            onTap: () {
+              Navigator.pushReplacementNamed(context, '/explore');
+            },
+          ),
           Container(
             margin: EdgeInsets.all(10.0),
             height: 10.0,

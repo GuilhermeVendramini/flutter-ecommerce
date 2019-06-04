@@ -1,7 +1,32 @@
 List<Map<String, dynamic>> trendsData = [
-  {'image': 'model-4.jpg', 'title': "Adidas"},
-  {'image': 'model-6.jpg', 'title': "Ray-Ban"},
-  {'image': 'model-7.jpg', 'title': "Nike"},
-  {'image': 'model-8.jpg', 'title': "Timberland"},
-  {'image': 'model-9.jpg', 'title': "Puma"},
+  {
+    'image': 'model-11.jpg',
+    'title': 'NEW COLLECTION OF SUNGLASSES',
+    'brand': 'Ray-Ban',
+    'logo': 'rayban.png',
+  },
+  {
+    'image': 'model-14.jpg',
+    'title': 'STREET WORKOUT SECRETS',
+    'brand': 'Adidas',
+    'logo': 'adidas.png',
+  },
+  {
+    'image': 'model-12.jpg',
+    'title': 'JUST DO IT!',
+    'brand': 'Nike',
+    'logo': 'nike.jpg',
+  },
+  {
+    'image': 'model-13.jpg',
+    'title': 'SRPING STYLES',
+    'brand': 'Timberland',
+    'logo': 'timberland.png',
+  },
+  {
+    'image': 'model-15.jpg',
+    'title': 'CLASSIC SMARTWATCH',
+    'brand': 'Ferrari',
+    'logo': 'ferrari.jpg',
+  },
 ];

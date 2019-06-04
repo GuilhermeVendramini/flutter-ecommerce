@@ -30,6 +30,8 @@ class TrendsService extends Trends {
       TrendModel _trend = TrendModel(
         title: item['title'],
         image: 'assets/images/${item['image']}',
+        brand: item['brand'],
+        logo: 'assets/images/${item['logo']}',
       );
       _trendsItems.add(_trend);
     });

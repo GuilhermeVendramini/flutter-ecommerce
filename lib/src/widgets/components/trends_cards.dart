@@ -9,33 +9,77 @@ class TrendsCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
-      child: Container(
-        alignment: Alignment.bottomCenter,
-        padding: EdgeInsets.only(bottom: 40.0),
-        height: 600,
-        width: 100,
-        decoration: BoxDecoration(
-          image: DecorationImage(
-            image: ExactAssetImage(_item.image),
-            fit: BoxFit.cover,
-            alignment: Alignment.topCenter,
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.all(Radius.circular(4.0)),
+        side: BorderSide(width: 0.0),
+      ),
+      margin: EdgeInsets.only(top: 10.0,bottom: 20.0),
+      child: Column(
+        children: <Widget>[
+          Container(
+            padding: EdgeInsets.all(8.0),
+            child: Row(
+              children: <Widget>[
+                Container(
+                  width: 60.0,
+                  height: 60.0,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(160.0),
+                    image: DecorationImage(
+                      image: ExactAssetImage(
+                        _item.logo,
+                      ),
+                      fit: BoxFit.cover,
+                    ),
+                  ),
+                ),
+                SizedBox(
+                  width: 20.0,
+                ),
+                Text(
+                  _item.brand,
+                  style: TextStyle(
+                    color: Colors.black,
+                    fontSize: 20.0,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ],
+            ),
           ),
-          borderRadius: BorderRadius.all(Radius.circular(8)),
-        ),
-        child: Text(
-          _item.title,
-          style: TextStyle(
-            fontSize: 24.0,
-            fontWeight: FontWeight.bold,
-            shadows: <Shadow>[
-              Shadow(
-                offset: Offset(1.0, 1.0),
-                blurRadius: 1.0,
-                color: Colors.black,
+          Container(
+            alignment: Alignment.bottomCenter,
+            height: 300,
+            decoration: BoxDecoration(
+              image: DecorationImage(
+                image: ExactAssetImage(_item.image),
+                fit: BoxFit.cover,
+                alignment: Alignment.center,
               ),
-            ],
+              borderRadius: BorderRadius.only(
+                bottomLeft: Radius.circular(4),
+                bottomRight: Radius.circular(4),
+              ),
+            ),
+            child: Container(
+              padding: EdgeInsets.all(20.0),
+              child: Text(
+                _item.title,
+                style: TextStyle(
+                  fontSize: 24.0,
+                  fontWeight: FontWeight.bold,
+                  shadows: <Shadow>[
+                    Shadow(
+                      offset: Offset(1.0, 1.0),
+                      blurRadius: 4.0,
+                      color: Colors.black,
+                    ),
+                  ],
+                ),
+              ),
+            ),
           ),
-        ),
+        ],
       ),
     );
   }
