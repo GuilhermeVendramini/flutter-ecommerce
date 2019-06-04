@@ -100,7 +100,7 @@ class GestureCardDeckState extends State<GestureCardDeck>
     double backCardWidth = -10.0;
     if (showData.isEmpty) {
       Future.delayed(const Duration(milliseconds: 500), () {
-        Navigator.pushReplacementNamed(context, '/login');
+        Navigator.pushReplacementNamed(context, '/explore');
       });
       return Center(
         child: CircularProgressIndicator(),

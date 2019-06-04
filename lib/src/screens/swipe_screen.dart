@@ -14,8 +14,10 @@ class SwipeScreen extends StatefulWidget {
 class _SwipeScreenSate extends State<SwipeScreen> {
   @override
   Widget build(BuildContext context) {
+    final double deviceWidth = MediaQuery.of(context).size.width;
+    final double targetWidth = deviceWidth > 650.0 ? 600.0 : deviceWidth * 0.95;
     final _swipeData = Provider.of<SwipeService>(context);
-    
+
     if (_swipeData.isSwipeLoaded == null) {
       _swipeData.loadSwipe();
     }
@@ -60,27 +62,16 @@ class _SwipeScreenSate extends State<SwipeScreen> {
                               leftSwipeButton: Container(
                                 height: 50,
                                 width: 150,
-/*                                decoration: BoxDecoration(
-                                    color: Color.fromRGBO(61, 135, 160, 1),
-                                    borderRadius: BorderRadius.all(
-                                      Radius.circular(8),
-                                    )),*/
                                 child: Center(
                                   child: Icon(
                                     Icons.clear,
                                     size: 60.0,
                                   ),
                                 ),
-                                //Center(child: Text("NOPE", style: TextStyle(color: Colors.white))),
                               ),
                               rightSwipeButton: Container(
                                 height: 50,
                                 width: 150,
-                                /*                 decoration: BoxDecoration(
-                                    color: Color.fromRGBO(95, 169, 194, 1),
-                                    borderRadius: BorderRadius.all(
-                                      Radius.circular(8),
-                                    )),*/
                                 child: Center(
                                   child: Icon(
                                     Icons.check,
@@ -88,7 +79,6 @@ class _SwipeScreenSate extends State<SwipeScreen> {
                                     color: Theme.of(context).buttonColor,
                                   ),
                                 ),
-                                //Center(child: Text("YEAH", style: TextStyle(color: Colors.white))),
                               ),
                               onSwipeLeft: (index) {
                                 print("on swipe left");
@@ -147,6 +137,30 @@ class _SwipeScreenSate extends State<SwipeScreen> {
                                 ),
                               ),
                             ),
+                          ),
+                          SizedBox(
+                            height: 10.0,
+                          ),
+                          GestureDetector(
+                            onTap: () {
+                              Navigator.pushReplacementNamed(context, '/explore');
+                            },
+                            child: Container(
+                                width: targetWidth,
+                                margin: EdgeInsets.only(right: 40.0),
+                                child: Row(
+                                  mainAxisAlignment: MainAxisAlignment.end,
+                                  children: <Widget>[
+                                    Text('SKIP'),
+                                    Icon(
+                                      Icons.arrow_forward_ios,
+                                      size: 10.0,
+                                    ),
+                                  ],
+                                )),
+                          ),
+                          SizedBox(
+                            height: 20.0,
                           ),
                         ],
                       ),

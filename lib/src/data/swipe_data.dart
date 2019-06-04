@@ -1,17 +1,7 @@
-/*
-import 'package:flutter_ecommerce/src/widgets/swipe/swipe_cards.dart';
-
-List swipeData = [
-  image1,
-  image2,
-  image3,
-  image4,
-];
-*/
-
 List<Map<String, dynamic>> swipeData = [
-  {'image': 'model-1.jpg'},
-  {'image': 'model-2.jpg'},
-  {'image': 'model-3.jpg'},
-  {'image': 'model-4.jpg'},
+  {'image': 'model-4.jpg', 'title': "WOMEN'S FASHION"},
+  {'image': 'model-6.jpg', 'title': "MEN'S FASHION"},
+  {'image': 'model-7.jpg', 'title': "SOCIAL CLOTHES"},
+  {'image': 'model-8.jpg', 'title': "TEEN'S STYLE"},
+  {'image': 'model-9.jpg', 'title': "KIDS STYLE"},
 ];
