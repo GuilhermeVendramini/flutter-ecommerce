@@ -32,6 +32,9 @@ class TrendsService extends Trends {
         image: 'assets/images/${item['image']}',
         brand: item['brand'],
         logo: 'assets/images/${item['logo']}',
+        time: item['time'],
+        views: item['views'],
+        likes: item['likes'],
       );
       _trendsItems.add(_trend);
     });

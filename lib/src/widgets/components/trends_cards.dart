@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_ecommerce/src/models/trend_model.dart';
+import 'package:flutter_ecommerce/src/widgets/components/base_card.dart';
 
 class TrendsCard extends StatelessWidget {
   final TrendModel _item;
@@ -13,72 +14,45 @@ class TrendsCard extends StatelessWidget {
         borderRadius: BorderRadius.all(Radius.circular(4.0)),
         side: BorderSide(width: 0.0),
       ),
-      margin: EdgeInsets.only(top: 10.0,bottom: 20.0),
+      margin: EdgeInsets.only(top: 10.0, bottom: 20.0),
       child: Column(
         children: <Widget>[
           Container(
             padding: EdgeInsets.all(8.0),
             child: Row(
               children: <Widget>[
-                Container(
-                  width: 60.0,
-                  height: 60.0,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(160.0),
-                    image: DecorationImage(
-                      image: ExactAssetImage(
-                        _item.logo,
-                      ),
-                      fit: BoxFit.cover,
-                    ),
-                  ),
-                ),
+                CardLogo(_item.logo),
                 SizedBox(
                   width: 20.0,
                 ),
-                Text(
-                  _item.brand,
-                  style: TextStyle(
-                    color: Colors.black,
-                    fontSize: 20.0,
-                    fontWeight: FontWeight.bold,
-                  ),
+                CardBrand(_item.brand),
+                Spacer(),
+                cardIconTime(),
+                SizedBox(
+                  width: 4.0,
                 ),
+                CardTime(_item.time),
               ],
             ),
           ),
-          Container(
-            alignment: Alignment.bottomCenter,
-            height: 300,
-            decoration: BoxDecoration(
-              image: DecorationImage(
-                image: ExactAssetImage(_item.image),
-                fit: BoxFit.cover,
-                alignment: Alignment.center,
-              ),
-              borderRadius: BorderRadius.only(
-                bottomLeft: Radius.circular(4),
-                bottomRight: Radius.circular(4),
-              ),
-            ),
-            child: Container(
-              padding: EdgeInsets.all(20.0),
-              child: Text(
-                _item.title,
-                style: TextStyle(
-                  fontSize: 24.0,
-                  fontWeight: FontWeight.bold,
-                  shadows: <Shadow>[
-                    Shadow(
-                      offset: Offset(1.0, 1.0),
-                      blurRadius: 4.0,
-                      color: Colors.black,
-                    ),
-                  ],
-                ),
+          Stack(children: <Widget>[
+            CardStackBackground(_item.image),
+            Container(
+              height: 300.0,
+              decoration: cardStackGradient,
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: <Widget>[
+                  CardTitle(_item.title),
+                  Container(
+                    padding:
+                        EdgeInsets.only(left: 20.0, right: 20.0, bottom: 20.0),
+                    child: CardInteractivity(_item.views, _item.likes),
+                  ),
+                ],
               ),
             ),
-          ),
+          ]),
         ],
       ),
     );
