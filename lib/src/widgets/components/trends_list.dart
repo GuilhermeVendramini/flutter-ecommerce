@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_ecommerce/src/models/trend_model.dart';
-import 'package:flutter_ecommerce/src/widgets/components/trends_cards.dart';
+import 'package:flutter_ecommerce/src/widgets/components/trends_card.dart';
 
 class TrendsList extends StatelessWidget {
   final List<TrendModel> _trendsList;

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_ecommerce/src/content/explore/feed_content.dart';
 import 'package:flutter_ecommerce/src/content/explore/trends_content.dart';
 import 'package:flutter_ecommerce/src/controllers/trends/trends_controller.dart';
 import 'package:flutter_ecommerce/src/widgets/components/search.dart';
@@ -56,7 +57,7 @@ class _ExploreScreenSate extends State<ExploreScreen> {
             body: TabBarView(
               children: <Widget>[
                 TrendsContent(),
-                Text('Feed'),
+                FeedsContent(),
               ],
             ),
           ),

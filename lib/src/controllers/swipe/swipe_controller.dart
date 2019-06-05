@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_ecommerce/src/data/swipe_data.dart';
 import 'package:flutter_ecommerce/src/models/swipe_model.dart';
-import 'package:flutter_ecommerce/src/widgets/components/swipe_cards.dart';
+import 'package:flutter_ecommerce/src/widgets/components/swipe_card.dart';
 
 class SwipeController with ChangeNotifier {
   List<Map<String, dynamic>> _swipeData;
