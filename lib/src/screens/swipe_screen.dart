@@ -15,7 +15,7 @@ class _SwipeScreenSate extends State<SwipeScreen> {
   @override
   Widget build(BuildContext context) {
     final double deviceWidth = MediaQuery.of(context).size.width;
-    final double targetWidth = deviceWidth > 650.0 ? 600.0 : deviceWidth * 0.95;
+    final double targetWidth = deviceWidth > 650.0 ? 600.0 : deviceWidth * 1;
     final _swipeData = Provider.of<SwipeService>(context);
 
     if (_swipeData.isSwipeLoaded == null) {

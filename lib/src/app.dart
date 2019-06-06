@@ -53,6 +53,11 @@ class _RunMaterialAppState extends State<RunMaterialApp> {
           body2: TextStyle(
             fontWeight: FontWeight.w300,
           ),
+          display1: TextStyle(
+            color: Colors.white,
+            fontWeight: FontWeight.w600,
+            fontSize: 24.0,
+          ),
         ),
         canvasColor: ThemeData.dark().canvasColor.withOpacity(0.9),
         accentColor: Colors.white.withOpacity(0.8),

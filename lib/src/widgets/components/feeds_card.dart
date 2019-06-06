@@ -38,6 +38,7 @@ class FeedsCard extends StatelessWidget {
           Stack(children: <Widget>[
             CardStackBackground(_item.image),
             Container(
+              padding: EdgeInsets.all(20.0),
               height: 300.0,
               decoration: cardStackGradient,
               child: Column(
@@ -45,8 +46,6 @@ class FeedsCard extends StatelessWidget {
                 children: <Widget>[
                   CardTitle(_item.title),
                   Container(
-                    padding:
-                    EdgeInsets.only(left: 20.0, right: 20.0, bottom: 20.0),
                     child: CardInteractivity(_item.views, _item.likes),
                   ),
                 ],

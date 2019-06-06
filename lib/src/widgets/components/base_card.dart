@@ -93,7 +93,7 @@ BoxDecoration cardStackGradient = BoxDecoration(
     end: FractionalOffset.bottomCenter,
     colors: [
       Colors.transparent,
-      Colors.black.withOpacity(0.5),
+      Colors.black.withOpacity(0.8),
     ],
     stops: [
       0.0,
@@ -110,14 +110,10 @@ class CardTitle extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.all(20.0),
       alignment: Alignment.bottomLeft,
       child: Text(
         _title,
-        style: TextStyle(
-          fontSize: 24.0,
-          fontWeight: FontWeight.bold,
-        ),
+        style: Theme.of(context).textTheme.display1,
       ),
     );
   }
