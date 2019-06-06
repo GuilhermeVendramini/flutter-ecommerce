@@ -1,5 +1,6 @@
 List<Map<String, dynamic>> trendsData = [
   {
+    'id': 1,
     'image': 'model-11.jpg',
     'title': 'NEW COLLECTION OF SUNGLASSES',
     'brand': 'Ray-Ban',
@@ -9,6 +10,7 @@ List<Map<String, dynamic>> trendsData = [
     'likes': '10k',
   },
   {
+    'id': 2,
     'image': 'model-14.jpg',
     'title': 'STREET WORKOUT SECRETS',
     'brand': 'Adidas',
@@ -18,6 +20,7 @@ List<Map<String, dynamic>> trendsData = [
     'likes': '5k',
   },
   {
+    'id': 3,
     'image': 'model-12.jpg',
     'title': 'JUST DO IT!',
     'brand': 'Nike',
@@ -27,6 +30,7 @@ List<Map<String, dynamic>> trendsData = [
     'likes': '12k',
   },
   {
+    'id': 4,
     'image': 'model-13.jpg',
     'title': 'SRPING STYLES',
     'brand': 'Timberland',
@@ -36,6 +40,7 @@ List<Map<String, dynamic>> trendsData = [
     'likes': '12k',
   },
   {
+    'id': 5,
     'image': 'model-15.jpg',
     'title': 'CLASSIC SMARTWATCH',
     'brand': 'Ferrari',

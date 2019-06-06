@@ -58,8 +58,9 @@ class _RunMaterialAppState extends State<RunMaterialApp> {
         accentColor: Colors.white.withOpacity(0.8),
         cursorColor: Colors.white.withOpacity(0.8),
         cardColor: Colors.white,
-        //buttonColor: Colors.lightBlue[600],
-        //appBarTheme: AppBarTheme(color: Colors.lightBlue[600]),
+        inputDecorationTheme: InputDecorationTheme(
+          labelStyle: TextStyle(fontWeight: FontWeight.w300),
+        ),
       ),
       routes: {
         '/login': (BuildContext context) => LoginScreen(),

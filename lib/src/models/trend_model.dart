@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 class TrendModel {
+  final int id;
   final String image;
   final String title;
   final String brand;
@@ -10,6 +11,7 @@ class TrendModel {
   final String likes;
 
   TrendModel({
+    @required this.id,
     @required this.image,
     @required this.title,
     @required this.brand,

@@ -49,11 +49,7 @@ flutter:
     - assets/images/rayban.png
     - assets/images/timberland.png
     - assets/images/model-0.jpg
-    - assets/images/model-1.jpg
-    - assets/images/model-2.jpg
-    - assets/images/model-3.jpg
     - assets/images/model-4.jpg
-    - assets/images/model-5.jpg
     - assets/images/model-6.jpg
     - assets/images/model-7.jpg
     - assets/images/model-8.jpg
@@ -64,6 +60,16 @@ flutter:
     - assets/images/model-13.jpg
     - assets/images/model-14.jpg
     - assets/images/model-15.jpg
+    - assets/images/model-16.jpg
+    - assets/images/model-16a.jpg
+    - assets/images/model-17.jpg
+    - assets/images/model-17a.jpg
+    - assets/images/model-18.jpg
+    - assets/images/model-18a.jpg
+    - assets/images/model-19.jpg
+    - assets/images/model-19a.jpg
+    - assets/images/model-20.jpg
+    - assets/images/model-20a.jpg
   #  - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see

@@ -28,6 +28,7 @@ class FeedsService extends Feeds {
     _feedsData = feedsData;
     _feedsData.forEach((item) {
       FeedModel _feed = FeedModel(
+        id: item['id'],
         title: item['title'],
         image: 'assets/images/${item['image']}',
         name: item['name'],

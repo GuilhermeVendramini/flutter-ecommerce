@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_ecommerce/src/content/explore/feed_content.dart';
 import 'package:flutter_ecommerce/src/content/explore/trends_content.dart';
+import 'package:flutter_ecommerce/src/controllers/feeds/feeds_controller.dart';
 import 'package:flutter_ecommerce/src/controllers/trends/trends_controller.dart';
 import 'package:flutter_ecommerce/src/widgets/components/search.dart';
 import 'package:flutter_ecommerce/src/widgets/components/side_drawer.dart';
@@ -21,6 +22,7 @@ class _ExploreScreenSate extends State<ExploreScreen> {
     return MultiProvider(
       providers: [
         Provider<TrendsService>(builder: (_) => TrendsService()),
+        Provider<FeedsService>(builder: (_) => FeedsService()),
       ],
       child: WillPopScope(
         onWillPop: () async {

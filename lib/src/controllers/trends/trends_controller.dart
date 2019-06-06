@@ -28,6 +28,7 @@ class TrendsService extends Trends {
     _trendsData = trendsData;
     _trendsData.forEach((item) {
       TrendModel _trend = TrendModel(
+        id: item['id'],
         title: item['title'],
         image: 'assets/images/${item['image']}',
         brand: item['brand'],
@@ -41,5 +42,4 @@ class TrendsService extends Trends {
     _isTrendsLoaded = true;
     return null;
   }
-
 }

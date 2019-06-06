@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 class FeedModel {
+  final int id;
   final String image;
   final String title;
   final String name;
@@ -10,6 +11,7 @@ class FeedModel {
   final String likes;
 
   FeedModel({
+    @required this.id,
     @required this.image,
     @required this.title,
     @required this.name,
