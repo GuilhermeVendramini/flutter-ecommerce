@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 
-class TrendModel {
+class PostBloggerModel {
   final int id;
   final String image;
   final String title;
-  final String brand;
+  final String name;
   final String logo;
   final String time;
   final String views;
@@ -12,11 +12,11 @@ class TrendModel {
   final String subtitle;
   final String content;
 
-  TrendModel({
+  PostBloggerModel({
     @required this.id,
     @required this.image,
     @required this.title,
-    @required this.brand,
+    @required this.name,
     @required this.logo,
     @required this.time,
     @required this.views,

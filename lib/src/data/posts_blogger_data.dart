@@ -1,4 +1,4 @@
-List<Map<String, dynamic>> feedsData = [
+List<Map<String, dynamic>> postsBloggerData = [
   {
     'id': 1,
     'image': 'model-18.jpg',

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_ecommerce/src/controllers/feeds/feeds_controller.dart';
-import 'package:flutter_ecommerce/src/controllers/trends/trends_controller.dart';
+import 'package:flutter_ecommerce/src/controllers/posts_blogger/posts_blogger_controller.dart';
+import 'package:flutter_ecommerce/src/controllers/posts_brand/posts_brand_controller.dart';
 import 'package:flutter_ecommerce/src/screens/explore_screen.dart';
 import 'package:provider/provider.dart';
 import 'package:flutter_ecommerce/src/screens/login_screen.dart';
@@ -23,8 +23,8 @@ class _AppState extends State<App> {
     return MultiProvider(
       providers: [
         Provider<SwipeService>(builder: (_) => SwipeService()),
-        Provider<TrendsService>(builder: (_) => TrendsService()),
-        Provider<FeedsService>(builder: (_) => FeedsService()),
+        Provider<PostsBrandService>(builder: (_) => PostsBrandService()),
+        Provider<PostsBloggerService>(builder: (_) => PostsBloggerService()),
       ],
       child: RunMaterialApp(),
     );

@@ -1,19 +1,19 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_ecommerce/src/models/trend_model.dart';
-import 'package:flutter_ecommerce/src/screens/trend_screen.dart';
+import 'package:flutter_ecommerce/src/models/post_blogger_model.dart';
+import 'package:flutter_ecommerce/src/screens/post_blogger_screen.dart';
 import 'package:flutter_ecommerce/src/widgets/elements/common.dart';
 
-class TrendsCard extends StatelessWidget {
-  final TrendModel _item;
+class PostBloggerCard extends StatelessWidget {
+  final PostBloggerModel _item;
 
-  TrendsCard(this._item);
+  PostBloggerCard(this._item);
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
         Route route = MaterialPageRoute(
-          builder: (context) => TrendScreen(_item.id),
+          builder: (context) => PostBloggerScreen(_item.id),
         );
         Navigator.push(context, route);
       },
@@ -36,7 +36,7 @@ class TrendsCard extends StatelessWidget {
                   SizedBox(
                     width: 20.0,
                   ),
-                  CommonBrand(_item.brand),
+                  CommonBrand(_item.name),
                   Spacer(),
                   commonIconTime(),
                   SizedBox(

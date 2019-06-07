@@ -1,28 +1,28 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_ecommerce/src/controllers/trends/trends_controller.dart';
-import 'package:flutter_ecommerce/src/models/trend_model.dart';
+import 'package:flutter_ecommerce/src/controllers/posts_brand/posts_brand_controller.dart';
+import 'package:flutter_ecommerce/src/models/post_brand_model.dart';
 import 'package:flutter_ecommerce/src/widgets/elements/common.dart';
 import 'package:provider/provider.dart';
 
-class TrendScreen extends StatefulWidget {
+class PostBrandScreen extends StatefulWidget {
   final int _id;
 
-  TrendScreen(this._id);
+  PostBrandScreen(this._id);
 
   @override
   State<StatefulWidget> createState() {
-    return _TrendScreenState();
+    return _PostBrandScreenState();
   }
 }
 
-class _TrendScreenState extends State<TrendScreen> {
+class _PostBrandScreenState extends State<PostBrandScreen> {
   @override
   Widget build(BuildContext context) {
     final double topWidgetHeight = 400.0;
     final double avatarRadius = 50.0;
     final backgroundColor = Colors.grey[100];
-    final _trends = Provider.of<TrendsService>(context);
-    final TrendModel _trend = _trends.getTrend(widget._id);
+    final _trends = Provider.of<PostsBrandService>(context);
+    final PostBrandModel _trend = _trends.getPostBrand(widget._id);
 
     return WillPopScope(
       onWillPop: () async {

@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 
-class FeedModel {
+class PostBrandModel {
   final int id;
   final String image;
   final String title;
-  final String name;
+  final String brand;
   final String logo;
   final String time;
   final String views;
@@ -12,11 +12,11 @@ class FeedModel {
   final String subtitle;
   final String content;
 
-  FeedModel({
+  PostBrandModel({
     @required this.id,
     @required this.image,
     @required this.title,
-    @required this.name,
+    @required this.brand,
     @required this.logo,
     @required this.time,
     @required this.views,

@@ -1,4 +1,4 @@
-List<Map<String, dynamic>> trendsData = [
+List<Map<String, dynamic>> postsBrandData = [
   {
     'id': 1,
     'image': 'model-11.jpg',

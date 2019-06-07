@@ -1,28 +1,28 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_ecommerce/src/controllers/feeds/feeds_controller.dart';
-import 'package:flutter_ecommerce/src/models/feed_model.dart';
+import 'package:flutter_ecommerce/src/controllers/posts_blogger/posts_blogger_controller.dart';
+import 'package:flutter_ecommerce/src/models/post_blogger_model.dart';
 import 'package:flutter_ecommerce/src/widgets/elements/common.dart';
 import 'package:provider/provider.dart';
 
-class FeedScreen extends StatefulWidget {
+class PostBloggerScreen extends StatefulWidget {
   final int _id;
 
-  FeedScreen(this._id);
+  PostBloggerScreen(this._id);
 
   @override
   State<StatefulWidget> createState() {
-    return _FeedScreenState();
+    return _PostBloggerScreenState();
   }
 }
 
-class _FeedScreenState extends State<FeedScreen> {
+class _PostBloggerScreenState extends State<PostBloggerScreen> {
   @override
   Widget build(BuildContext context) {
     final double topWidgetHeight = 400.0;
     final double avatarRadius = 50.0;
     final backgroundColor = Colors.grey[100];
-    final _feeds = Provider.of<FeedsService>(context);
-    final FeedModel _feed = _feeds.getFeed(widget._id);
+    final _feeds = Provider.of<PostsBloggerService>(context);
+    final PostBloggerModel _feed = _feeds.getPostBlogger(widget._id);
 
     return WillPopScope(
       onWillPop: () async {

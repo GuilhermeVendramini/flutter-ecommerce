@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_ecommerce/src/models/trend_model.dart';
-import 'package:flutter_ecommerce/src/widgets/components/trends_card.dart';
+import 'package:flutter_ecommerce/src/models/post_brand_model.dart';
+import 'package:flutter_ecommerce/src/widgets/components/post_brand_card.dart';
 
 class TrendsList extends StatelessWidget {
-  final List<TrendModel> _trendsList;
+  final List<PostBrandModel> _trendsList;
 
   TrendsList(this._trendsList);
 
@@ -12,7 +12,7 @@ class TrendsList extends StatelessWidget {
     return ListView.builder(
       itemCount: _trendsList.length,
       itemBuilder: (context, index) {
-        return TrendsCard(_trendsList[index]);
+        return PostBrandCard(_trendsList[index]);
       },
     );
   }

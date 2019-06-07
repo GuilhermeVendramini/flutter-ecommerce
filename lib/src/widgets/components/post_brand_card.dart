@@ -1,19 +1,19 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_ecommerce/src/models/feed_model.dart';
-import 'package:flutter_ecommerce/src/screens/feed_screen.dart';
+import 'package:flutter_ecommerce/src/models/post_brand_model.dart';
+import 'package:flutter_ecommerce/src/screens/post_brand_screen.dart';
 import 'package:flutter_ecommerce/src/widgets/elements/common.dart';
 
-class FeedsCard extends StatelessWidget {
-  final FeedModel _item;
+class PostBrandCard extends StatelessWidget {
+  final PostBrandModel _item;
 
-  FeedsCard(this._item);
+  PostBrandCard(this._item);
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
         Route route = MaterialPageRoute(
-          builder: (context) => FeedScreen(_item.id),
+          builder: (context) => PostBrandScreen(_item.id),
         );
         Navigator.push(context, route);
       },
@@ -36,7 +36,7 @@ class FeedsCard extends StatelessWidget {
                   SizedBox(
                     width: 20.0,
                   ),
-                  CommonBrand(_item.name),
+                  CommonBrand(_item.brand),
                   Spacer(),
                   commonIconTime(),
                   SizedBox(
