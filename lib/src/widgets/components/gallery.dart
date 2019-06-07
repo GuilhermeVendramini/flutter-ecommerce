@@ -34,6 +34,7 @@ class Gallery extends StatelessWidget {
                   image: ExactAssetImage(i['item']),
                   fit: BoxFit.fill,
                 ),
+                borderRadius: BorderRadius.all(Radius.circular(10.0)),
               ),
             );
           },
