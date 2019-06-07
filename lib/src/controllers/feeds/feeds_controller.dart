@@ -4,13 +4,19 @@ import 'package:flutter_ecommerce/src/models/feed_model.dart';
 
 class FeedsController with ChangeNotifier {
   List<Map<String, dynamic>> _feedsData;
-  List<FeedModel> _feedsItems = [];
+  List<FeedModel> _feeds = [];
+  Iterable<FeedModel> _feed;
   bool _isFeedsLoaded;
 }
 
 class Feeds extends FeedsController {
   List<FeedModel> get getTrendsItems {
-    return _feedsItems;
+    return _feeds;
+  }
+
+  FeedModel getFeed(int id) {
+    _feed = _feeds.where((trend) => trend.id == id);
+    return _feed.first;
   }
 
   bool get isFeedsLoaded {
@@ -24,7 +30,7 @@ class FeedsService extends Feeds {
       return null;
     }
 
-    _feedsItems = [];
+    _feeds = [];
     _feedsData = feedsData;
     _feedsData.forEach((item) {
       FeedModel _feed = FeedModel(
@@ -36,8 +42,10 @@ class FeedsService extends Feeds {
         time: item['time'],
         views: item['views'],
         likes: item['likes'],
+        subtitle: item['subtitle'],
+        content: item['content'],
       );
-      _feedsItems.add(_feed);
+      _feeds.add(_feed);
     });
     _isFeedsLoaded = true;
     return null;

@@ -4,13 +4,19 @@ import 'package:flutter_ecommerce/src/models/trend_model.dart';
 
 class TrendsController with ChangeNotifier {
   List<Map<String, dynamic>> _trendsData;
-  List<TrendModel> _trendsItems = [];
+  List<TrendModel> _trends = [];
+  Iterable<TrendModel> _trend;
   bool _isTrendsLoaded;
 }
 
 class Trends extends TrendsController {
   List<TrendModel> get getTrendsItems {
-    return _trendsItems;
+    return _trends;
+  }
+
+  TrendModel getTrend(int id) {
+    _trend = _trends.where((trend) => trend.id == id);
+    return _trend.first;
   }
 
   bool get isTrendsLoaded {
@@ -24,7 +30,7 @@ class TrendsService extends Trends {
       return null;
     }
 
-    _trendsItems = [];
+    _trends = [];
     _trendsData = trendsData;
     _trendsData.forEach((item) {
       TrendModel _trend = TrendModel(
@@ -36,8 +42,10 @@ class TrendsService extends Trends {
         time: item['time'],
         views: item['views'],
         likes: item['likes'],
+        subtitle: item['subtitle'],
+        content: item['content'],
       );
-      _trendsItems.add(_trend);
+      _trends.add(_trend);
     });
     _isTrendsLoaded = true;
     return null;

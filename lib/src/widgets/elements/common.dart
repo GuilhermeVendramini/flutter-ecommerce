@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
-class CardLogo extends StatelessWidget {
+class CommonCircularLogo1 extends StatelessWidget {
   final String _logo;
 
-  CardLogo(this._logo);
+  CommonCircularLogo1(this._logo);
 
   @override
   Widget build(BuildContext context) {
@@ -23,10 +23,34 @@ class CardLogo extends StatelessWidget {
   }
 }
 
-class CardBrand extends StatelessWidget {
+class CommonCircularLogo2 extends StatelessWidget {
+  final String _logo;
+
+  CommonCircularLogo2(this._logo);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      width: 100.0,
+      height: 100.0,
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(160.0),
+        border: Border.all(color: Colors.white),
+        image: DecorationImage(
+          image: ExactAssetImage(
+            _logo,
+          ),
+          fit: BoxFit.cover,
+        ),
+      ),
+    );
+  }
+}
+
+class CommonBrand extends StatelessWidget {
   final String _brand;
 
-  CardBrand(this._brand);
+  CommonBrand(this._brand);
 
   @override
   Widget build(BuildContext context) {
@@ -41,7 +65,7 @@ class CardBrand extends StatelessWidget {
   }
 }
 
-Widget cardIconTime() {
+Widget commonIconTime() {
   return Icon(
     Icons.access_time,
     color: Colors.black26,
@@ -49,10 +73,10 @@ Widget cardIconTime() {
   );
 }
 
-class CardTime extends StatelessWidget {
+class CommonTime extends StatelessWidget {
   final String _time;
 
-  CardTime(this._time);
+  CommonTime(this._time);
 
   @override
   Widget build(BuildContext context) {
@@ -66,10 +90,11 @@ class CardTime extends StatelessWidget {
   }
 }
 
-class CardStackBackground extends StatelessWidget {
+class CommonStackBackground extends StatelessWidget {
   final String _image;
+  final double _height;
 
-  CardStackBackground(this._image);
+  CommonStackBackground(this._image, this._height);
 
   @override
   Widget build(BuildContext context) {
@@ -82,12 +107,12 @@ class CardStackBackground extends StatelessWidget {
           ),
         ),
       ),
-      height: 300.0,
+      height: _height,
     );
   }
 }
 
-BoxDecoration cardStackGradient = BoxDecoration(
+BoxDecoration commonStackGradient = BoxDecoration(
   gradient: LinearGradient(
     begin: FractionalOffset.topCenter,
     end: FractionalOffset.bottomCenter,
@@ -102,15 +127,14 @@ BoxDecoration cardStackGradient = BoxDecoration(
   ),
 );
 
-class CardTitle extends StatelessWidget {
+class CommonTitle extends StatelessWidget {
   final String _title;
 
-  CardTitle(this._title);
+  CommonTitle(this._title);
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      alignment: Alignment.bottomLeft,
       child: Text(
         _title,
         style: Theme.of(context).textTheme.display1,
@@ -119,15 +143,17 @@ class CardTitle extends StatelessWidget {
   }
 }
 
-class CardInteractivity extends StatelessWidget {
+class CommonInteractivity extends StatelessWidget {
   final String _views;
   final String _likes;
+  final MainAxisAlignment _mAlignment;
 
-  CardInteractivity(this._views, this._likes);
+  CommonInteractivity(this._views, this._likes, this._mAlignment);
 
   @override
   Widget build(BuildContext context) {
     return Row(
+      mainAxisAlignment: _mAlignment,
       children: <Widget>[
         Icon(
           Icons.visibility,
@@ -149,6 +175,42 @@ class CardInteractivity extends StatelessWidget {
         ),
         Text(_likes),
       ],
+    );
+  }
+}
+
+class CommonTitleContent extends StatelessWidget {
+  final String _title;
+
+  CommonTitleContent(this._title);
+
+  @override
+  Widget build(BuildContext context) {
+    return Text(
+      _title,
+      style: TextStyle(
+        color: Colors.black87,
+        fontSize: 24.0,
+        fontWeight: FontWeight.w600,
+      ),
+    );
+  }
+}
+
+class CommonContentBody extends StatelessWidget {
+  final String _body;
+
+  CommonContentBody(this._body);
+
+  @override
+  Widget build(BuildContext context) {
+    return Text(
+      _body,
+      style: TextStyle(
+        color: Colors.black54,
+        fontSize: 18.0,
+        fontWeight: FontWeight.w400,
+      ),
     );
   }
 }

@@ -1,28 +1,28 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_ecommerce/src/controllers/trends/trends_controller.dart';
-import 'package:flutter_ecommerce/src/models/trend_model.dart';
+import 'package:flutter_ecommerce/src/controllers/feeds/feeds_controller.dart';
+import 'package:flutter_ecommerce/src/models/feed_model.dart';
 import 'package:flutter_ecommerce/src/widgets/elements/common.dart';
 import 'package:provider/provider.dart';
 
-class TrendScreen extends StatefulWidget {
+class FeedScreen extends StatefulWidget {
   final int _id;
 
-  TrendScreen(this._id);
+  FeedScreen(this._id);
 
   @override
   State<StatefulWidget> createState() {
-    return _TrendScreenState();
+    return _FeedScreenState();
   }
 }
 
-class _TrendScreenState extends State<TrendScreen> {
+class _FeedScreenState extends State<FeedScreen> {
   @override
   Widget build(BuildContext context) {
     final double topWidgetHeight = 400.0;
     final double avatarRadius = 50.0;
     final backgroundColor = Colors.grey[100];
-    final _trends = Provider.of<TrendsService>(context);
-    final TrendModel _trend = _trends.getTrend(widget._id);
+    final _feeds = Provider.of<FeedsService>(context);
+    final FeedModel _feed = _feeds.getFeed(widget._id);
 
     return WillPopScope(
       onWillPop: () async {
@@ -38,7 +38,7 @@ class _TrendScreenState extends State<TrendScreen> {
                   overflow: Overflow.visible,
                   children: <Widget>[
                     CommonStackBackground(
-                      _trend.image,
+                      _feed.image,
                       topWidgetHeight,
                     ),
                     Container(
@@ -50,12 +50,12 @@ class _TrendScreenState extends State<TrendScreen> {
                         mainAxisSize: MainAxisSize.max,
                         mainAxisAlignment: MainAxisAlignment.end,
                         children: <Widget>[
-                          CommonTitle(_trend.title),
+                          CommonTitle(_feed.title),
                           SizedBox(
                             height: 20.0,
                           ),
-                          CommonInteractivity(_trend.views, _trend.likes,
-                              MainAxisAlignment.center),
+                          CommonInteractivity(
+                              _feed.views, _feed.likes, MainAxisAlignment.center),
                           SizedBox(
                             height: 60.0,
                           ),
@@ -64,8 +64,8 @@ class _TrendScreenState extends State<TrendScreen> {
                     ),
                     Positioned(
                       child: Hero(
-                        tag: _trend.logo,
-                        child: CommonCircularLogo2(_trend.logo),
+                        tag: _feed.logo,
+                        child: CommonCircularLogo2(_feed.logo),
                       ),
                       left: (MediaQuery.of(context).size.width / 2) -
                           avatarRadius,
@@ -84,11 +84,11 @@ class _TrendScreenState extends State<TrendScreen> {
                   padding: EdgeInsets.all(20.0),
                   child: Column(
                     children: <Widget>[
-                      CommonTitleContent(_trend.subtitle),
+                      CommonTitleContent(_feed.subtitle),
                       SizedBox(
                         height: 20.0,
                       ),
-                      CommonContentBody(_trend.content),
+                      CommonContentBody(_feed.content),
                     ],
                   ),
                 ),
