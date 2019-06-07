@@ -44,6 +44,7 @@ class PostsBloggerService extends PostsBlogger {
         likes: item['likes'],
         subtitle: item['subtitle'],
         content: item['content'],
+        gallery: item['gallery'],
       );
       _postsBlogger.add(_postBlogger);
     });

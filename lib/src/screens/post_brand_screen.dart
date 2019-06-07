@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_ecommerce/src/controllers/posts_brand/posts_brand_controller.dart';
 import 'package:flutter_ecommerce/src/models/post_brand_model.dart';
+import 'package:flutter_ecommerce/src/widgets/components/gallery.dart';
 import 'package:flutter_ecommerce/src/widgets/elements/common.dart';
 import 'package:provider/provider.dart';
 
@@ -21,8 +22,8 @@ class _PostBrandScreenState extends State<PostBrandScreen> {
     final double topWidgetHeight = 400.0;
     final double avatarRadius = 50.0;
     final backgroundColor = Colors.grey[100];
-    final _trends = Provider.of<PostsBrandService>(context);
-    final PostBrandModel _trend = _trends.getPostBrand(widget._id);
+    final _posts = Provider.of<PostsBrandService>(context);
+    final PostBrandModel _post = _posts.getPostBrand(widget._id);
 
     return WillPopScope(
       onWillPop: () async {
@@ -38,7 +39,7 @@ class _PostBrandScreenState extends State<PostBrandScreen> {
                   overflow: Overflow.visible,
                   children: <Widget>[
                     CommonStackBackground(
-                      _trend.image,
+                      _post.image,
                       topWidgetHeight,
                     ),
                     Container(
@@ -50,11 +51,11 @@ class _PostBrandScreenState extends State<PostBrandScreen> {
                         mainAxisSize: MainAxisSize.max,
                         mainAxisAlignment: MainAxisAlignment.end,
                         children: <Widget>[
-                          CommonTitle(_trend.title),
+                          CommonTitle(_post.title),
                           SizedBox(
                             height: 20.0,
                           ),
-                          CommonInteractivity(_trend.views, _trend.likes,
+                          CommonInteractivity(_post.views, _post.likes,
                               MainAxisAlignment.center),
                           SizedBox(
                             height: 60.0,
@@ -64,8 +65,8 @@ class _PostBrandScreenState extends State<PostBrandScreen> {
                     ),
                     Positioned(
                       child: Hero(
-                        tag: _trend.logo,
-                        child: CommonCircularLogo2(_trend.logo),
+                        tag: _post.logo,
+                        child: CommonCircularLogo2(_post.logo),
                       ),
                       left: (MediaQuery.of(context).size.width / 2) -
                           avatarRadius,
@@ -84,11 +85,15 @@ class _PostBrandScreenState extends State<PostBrandScreen> {
                   padding: EdgeInsets.all(20.0),
                   child: Column(
                     children: <Widget>[
-                      CommonTitleContent(_trend.subtitle),
+                      CommonTitleContent(_post.subtitle),
                       SizedBox(
                         height: 20.0,
                       ),
-                      CommonContentBody(_trend.content),
+                      CommonContentBody(_post.content),
+                      SizedBox(
+                        height: 20.0,
+                      ),
+                      Gallery(_post.gallery),
                     ],
                   ),
                 ),

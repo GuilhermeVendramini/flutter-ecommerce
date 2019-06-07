@@ -11,6 +11,7 @@ class PostBrandModel {
   final String likes;
   final String subtitle;
   final String content;
+  final List<Map<String, String>> gallery;
 
   PostBrandModel({
     @required this.id,
@@ -23,5 +24,6 @@ class PostBrandModel {
     @required this.likes,
     @required this.subtitle,
     @required this.content,
+    @required this.gallery,
   });
 }

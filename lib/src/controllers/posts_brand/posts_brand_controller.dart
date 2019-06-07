@@ -44,6 +44,7 @@ class PostsBrandService extends PostsBrand {
         likes: item['likes'],
         subtitle: item['subtitle'],
         content: item['content'],
+        gallery: item['gallery'],
       );
       _postsBrand.add(_postBrand);
     });

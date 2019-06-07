@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_ecommerce/src/controllers/posts_blogger/posts_blogger_controller.dart';
 import 'package:flutter_ecommerce/src/models/post_blogger_model.dart';
+import 'package:flutter_ecommerce/src/widgets/components/gallery.dart';
 import 'package:flutter_ecommerce/src/widgets/elements/common.dart';
 import 'package:provider/provider.dart';
 
@@ -21,8 +22,8 @@ class _PostBloggerScreenState extends State<PostBloggerScreen> {
     final double topWidgetHeight = 400.0;
     final double avatarRadius = 50.0;
     final backgroundColor = Colors.grey[100];
-    final _feeds = Provider.of<PostsBloggerService>(context);
-    final PostBloggerModel _feed = _feeds.getPostBlogger(widget._id);
+    final _posts = Provider.of<PostsBloggerService>(context);
+    final PostBloggerModel _post = _posts.getPostBlogger(widget._id);
 
     return WillPopScope(
       onWillPop: () async {
@@ -38,7 +39,7 @@ class _PostBloggerScreenState extends State<PostBloggerScreen> {
                   overflow: Overflow.visible,
                   children: <Widget>[
                     CommonStackBackground(
-                      _feed.image,
+                      _post.image,
                       topWidgetHeight,
                     ),
                     Container(
@@ -50,12 +51,12 @@ class _PostBloggerScreenState extends State<PostBloggerScreen> {
                         mainAxisSize: MainAxisSize.max,
                         mainAxisAlignment: MainAxisAlignment.end,
                         children: <Widget>[
-                          CommonTitle(_feed.title),
+                          CommonTitle(_post.title),
                           SizedBox(
                             height: 20.0,
                           ),
                           CommonInteractivity(
-                              _feed.views, _feed.likes, MainAxisAlignment.center),
+                              _post.views, _post.likes, MainAxisAlignment.center),
                           SizedBox(
                             height: 60.0,
                           ),
@@ -64,8 +65,8 @@ class _PostBloggerScreenState extends State<PostBloggerScreen> {
                     ),
                     Positioned(
                       child: Hero(
-                        tag: _feed.logo,
-                        child: CommonCircularLogo2(_feed.logo),
+                        tag: _post.logo,
+                        child: CommonCircularLogo2(_post.logo),
                       ),
                       left: (MediaQuery.of(context).size.width / 2) -
                           avatarRadius,
@@ -84,11 +85,15 @@ class _PostBloggerScreenState extends State<PostBloggerScreen> {
                   padding: EdgeInsets.all(20.0),
                   child: Column(
                     children: <Widget>[
-                      CommonTitleContent(_feed.subtitle),
+                      CommonTitleContent(_post.subtitle),
                       SizedBox(
                         height: 20.0,
                       ),
-                      CommonContentBody(_feed.content),
+                      CommonContentBody(_post.content),
+                      SizedBox(
+                        height: 20.0,
+                      ),
+                      Gallery(_post.gallery),
                     ],
                   ),
                 ),
