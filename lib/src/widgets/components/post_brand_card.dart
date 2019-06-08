@@ -31,7 +31,7 @@ class PostBrandCard extends StatelessWidget {
                 children: <Widget>[
                   Hero(
                     tag: _item.logo,
-                    child: CommonCircularLogo1(_item.logo),
+                    child: CommonCircularLogo(_item.logo, 60.0, 60.0),
                   ),
                   SizedBox(
                     width: 20.0,

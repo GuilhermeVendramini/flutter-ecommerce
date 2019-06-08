@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_ecommerce/src/models/swipe_model.dart';
+import 'package:flutter_ecommerce/src/widgets/elements/common.dart';
 
 class SwipeCard extends StatelessWidget {
   final SwipeModel _item;
@@ -20,20 +21,7 @@ class SwipeCard extends StatelessWidget {
           ),
           borderRadius: BorderRadius.all(Radius.circular(8)),
       ),
-      child: Text(
-        _item.title,
-        style: TextStyle(
-          fontSize: 24.0,
-          fontWeight: FontWeight.bold,
-          shadows: <Shadow>[
-            Shadow(
-              offset: Offset(1.0, 1.0),
-              blurRadius: 1.0,
-              color: Colors.black,
-            ),
-          ],
-        ),
-      ),
+      child: CommonTitleShadow(_item.title),
     );
   }
 }

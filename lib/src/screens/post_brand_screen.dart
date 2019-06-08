@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_ecommerce/src/controllers/posts_brand/posts_brand_controller.dart';
 import 'package:flutter_ecommerce/src/models/post_brand_model.dart';
+import 'package:flutter_ecommerce/src/screens/timeline_brand_screen.dart';
 import 'package:flutter_ecommerce/src/widgets/components/gallery.dart';
 import 'package:flutter_ecommerce/src/widgets/elements/common.dart';
 import 'package:provider/provider.dart';
@@ -64,21 +65,36 @@ class _PostBrandScreenState extends State<PostBrandScreen> {
                       ),
                     ),
                     Positioned(
-                      child: Hero(
-                        tag: _post.logo,
-                        child: CommonCircularLogo2(_post.logo),
+                      child: GestureDetector(
+                        onTap: () {
+                          Route route = MaterialPageRoute(
+                            builder: (context) => TimeLineBrandScreen(1),
+                          );
+                          Navigator.push(context, route);
+                        },
+                        child: Hero(
+                          tag: _post.logo,
+                          child: CommonCircularLogo(_post.logo, 100.0, 100.0),
+                        ),
                       ),
                       left: (MediaQuery.of(context).size.width / 2) -
                           avatarRadius,
                       top: topWidgetHeight - avatarRadius,
                     ),
-                    SizedBox(
-                      height: 120.0,
-                    ),
                   ],
                 ),
-                SizedBox(
-                  height: 60.0,
+                GestureDetector(
+                  onTap: () {
+                    Route route = MaterialPageRoute(
+                      builder: (context) => TimeLineBrandScreen(1),
+                    );
+                    Navigator.push(context, route);
+                  },
+                  child: Container(
+                    width: 100.0,
+                    height: 60.0,
+                    color: Colors.transparent,
+                  ),
                 ),
                 Container(
                   color: backgroundColor,

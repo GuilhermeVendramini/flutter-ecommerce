@@ -1,41 +1,19 @@
 import 'package:flutter/material.dart';
 
-class CommonCircularLogo1 extends StatelessWidget {
+class CommonCircularLogo extends StatelessWidget {
   final String _logo;
+  final double _width;
+  final double _height;
 
-  CommonCircularLogo1(this._logo);
+  CommonCircularLogo(this._logo, this._width, this._height);
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 60.0,
-      height: 60.0,
+      width: _width,
+      height: _height,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(160.0),
-        image: DecorationImage(
-          image: ExactAssetImage(
-            _logo,
-          ),
-          fit: BoxFit.cover,
-        ),
-      ),
-    );
-  }
-}
-
-class CommonCircularLogo2 extends StatelessWidget {
-  final String _logo;
-
-  CommonCircularLogo2(this._logo);
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      width: 100.0,
-      height: 100.0,
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(160.0),
-        border: Border.all(color: Colors.white),
         image: DecorationImage(
           image: ExactAssetImage(
             _logo,
@@ -211,6 +189,48 @@ class CommonContentBody extends StatelessWidget {
         fontSize: 18.0,
         fontWeight: FontWeight.w400,
       ),
+    );
+  }
+}
+
+class CommonTitleShadow extends StatelessWidget {
+  final String _title;
+
+  CommonTitleShadow(this._title);
+
+  @override
+  Widget build(BuildContext context) {
+    return Text(
+      _title,
+      style: TextStyle(
+        fontSize: 24.0,
+        fontWeight: FontWeight.bold,
+        shadows: <Shadow>[
+          Shadow(
+            offset: Offset(1.0, 1.0),
+            blurRadius: 1.0,
+            color: Colors.black,
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class CommonTitleOpacity extends StatelessWidget {
+  final String _title;
+
+  CommonTitleOpacity(this._title);
+
+  @override
+  Widget build(BuildContext context) {
+    return Text(
+      _title,
+      style: TextStyle(
+        color: Colors.white.withOpacity(0.6),
+        fontWeight: FontWeight.w300,
+      ),
+      textAlign: TextAlign.center,
     );
   }
 }

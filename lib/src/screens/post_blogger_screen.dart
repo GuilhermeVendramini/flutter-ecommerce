@@ -66,14 +66,11 @@ class _PostBloggerScreenState extends State<PostBloggerScreen> {
                     Positioned(
                       child: Hero(
                         tag: _post.logo,
-                        child: CommonCircularLogo2(_post.logo),
+                        child: CommonCircularLogo(_post.logo, 100.0, 100.0),
                       ),
                       left: (MediaQuery.of(context).size.width / 2) -
                           avatarRadius,
                       top: topWidgetHeight - avatarRadius,
-                    ),
-                    SizedBox(
-                      height: 120.0,
                     ),
                   ],
                 ),
