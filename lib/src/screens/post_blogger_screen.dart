@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_ecommerce/src/controllers/posts_blogger/posts_blogger_controller.dart';
 import 'package:flutter_ecommerce/src/models/post_blogger_model.dart';
+import 'package:flutter_ecommerce/src/screens/timeline_blogger_screen.dart';
 import 'package:flutter_ecommerce/src/widgets/components/gallery.dart';
 import 'package:flutter_ecommerce/src/widgets/elements/common.dart';
 import 'package:provider/provider.dart';
@@ -64,15 +65,33 @@ class _PostBloggerScreenState extends State<PostBloggerScreen> {
                       ),
                     ),
                     Positioned(
-                      child: CommonCircularLogo(_post.logo, 100.0, 100.0),
+                      child: GestureDetector(
+                        onTap: () {
+                          Route route = MaterialPageRoute(
+                            builder: (context) => TimeLineBloggerScreen(_post.authorId),
+                          );
+                          Navigator.push(context, route);
+                        },
+                        child: CommonCircularLogo(_post.logo, 100.0, 100.0),
+                      ),
                       left: (MediaQuery.of(context).size.width / 2) -
                           avatarRadius,
                       top: topWidgetHeight - avatarRadius,
                     ),
                   ],
                 ),
-                SizedBox(
-                  height: 60.0,
+                GestureDetector(
+                  onTap: () {
+                    Route route = MaterialPageRoute(
+                      builder: (context) => TimeLineBloggerScreen(_post.authorId),
+                    );
+                    Navigator.push(context, route);
+                  },
+                  child: Container(
+                    width: 100.0,
+                    height: 60.0,
+                    color: Colors.transparent,
+                  ),
                 ),
                 Container(
                   color: backgroundColor,

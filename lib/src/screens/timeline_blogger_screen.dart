@@ -1,32 +1,32 @@
 import 'dart:ui';
 import 'package:flutter/material.dart';
-import 'package:flutter_ecommerce/src/controllers/brands/brands_controller.dart';
-import 'package:flutter_ecommerce/src/controllers/posts_brand/posts_brand_controller.dart';
-import 'package:flutter_ecommerce/src/models/brand_model.dart';
+import 'package:flutter_ecommerce/src/controllers/authors/authors_controller.dart';
+import 'package:flutter_ecommerce/src/controllers/posts_blogger/posts_blogger_controller.dart';
+import 'package:flutter_ecommerce/src/models/author_model.dart';
 import 'package:flutter_ecommerce/src/widgets/components/followers.dart';
-import 'package:flutter_ecommerce/src/widgets/components/timeline_brand_list.dart';
+import 'package:flutter_ecommerce/src/widgets/components/timeline_blogger_list.dart';
 import 'package:flutter_ecommerce/src/widgets/elements/common.dart';
 import 'package:provider/provider.dart';
 
-class TimeLineBrandScreen extends StatefulWidget {
+class TimeLineBloggerScreen extends StatefulWidget {
   final int _id;
 
-  TimeLineBrandScreen(this._id);
+  TimeLineBloggerScreen(this._id);
 
   @override
   State<StatefulWidget> createState() {
-    return _TimeLineBrandScreenState();
+    return _TimeLineBloggerState();
   }
 }
 
-class _TimeLineBrandScreenState extends State<TimeLineBrandScreen> {
+class _TimeLineBloggerState extends State<TimeLineBloggerScreen> {
   @override
   Widget build(BuildContext context) {
     final double deviceWidth = MediaQuery.of(context).size.width;
     final double targetWidth = deviceWidth > 650.0 ? 600.0 : deviceWidth * 0.95;
-    final _posts = Provider.of<PostsBrandService>(context);
-    final _brands = Provider.of<BrandsService>(context);
-    BrandModel _brand = _brands.getBrand(widget._id);
+    final _posts = Provider.of<PostsBloggerService>(context);
+    final _authors = Provider.of<AuthorsService>(context);
+    AuthorModel _author = _authors.getAuthor(widget._id);
 
     return WillPopScope(
       onWillPop: () async {
@@ -54,30 +54,27 @@ class _TimeLineBrandScreenState extends State<TimeLineBrandScreen> {
                               flex: 4,
                             ),
                             CommonCircularLogo(
-                              _brand.logo,
+                              _author.logo,
                               140.0,
                               140.0,
                             ),
                             SizedBox(
                               height: 30.0,
                             ),
-                            CommonTitle(_brand.title),
+                            CommonTitle(_author.name),
                             SizedBox(
                               height: 20.0,
                             ),
-                            CommonTitleOpacity(_brand.slogan),
+                            CommonTitleOpacity(_author.slogan),
                             SizedBox(
                               height: 30.0,
                             ),
-                            CommonTitleOpacity('${_brand.followers} followers'),
+                            CommonTitleOpacity(
+                                '${_author.followers} followers'),
                             SizedBox(
                               height: 20.0,
                             ),
                             Followers(),
-                            SizedBox(
-                              height: 30.0,
-                            ),
-                            _seeInStore(),
                             Spacer(
                               flex: 2,
                             ),
@@ -92,7 +89,8 @@ class _TimeLineBrandScreenState extends State<TimeLineBrandScreen> {
                   Center(
                     child: Container(
                       width: targetWidth,
-                      child: TimelineBrandList(_posts.getPostsOfBrand(widget._id)),
+                      child: TimelineBloggerList(
+                          _posts.getPostsOfAuthor(widget._id)),
                     ),
                   ),
                 ],
@@ -112,29 +110,6 @@ class _TimeLineBrandScreenState extends State<TimeLineBrandScreen> {
         colorFilter: ColorFilter.mode(
             Colors.black.withOpacity(0.4), BlendMode.hardLight),
       ),
-    );
-  }
-
-  Row _seeInStore() {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: <Widget>[
-        Text(
-          'SEE IN STORE',
-          style: TextStyle(
-            color: Colors.white.withOpacity(0.6),
-            fontSize: 16.0,
-          ),
-        ),
-        SizedBox(
-          width: 6.0,
-        ),
-        Icon(
-          Icons.arrow_forward_ios,
-          color: Colors.white.withOpacity(0.6),
-          size: 18.0,
-        ),
-      ],
     );
   }
 }

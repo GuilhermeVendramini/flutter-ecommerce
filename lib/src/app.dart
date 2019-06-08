@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_ecommerce/src/controllers/authors/authors_controller.dart';
 import 'package:flutter_ecommerce/src/controllers/brands/brands_controller.dart';
 import 'package:flutter_ecommerce/src/controllers/posts_blogger/posts_blogger_controller.dart';
 import 'package:flutter_ecommerce/src/controllers/posts_brand/posts_brand_controller.dart';
@@ -27,6 +28,7 @@ class _AppState extends State<App> {
         Provider<PostsBrandService>(builder: (_) => PostsBrandService()),
         Provider<PostsBloggerService>(builder: (_) => PostsBloggerService()),
         Provider<BrandsService>(builder: (_) => BrandsService()),
+        Provider<AuthorsService>(builder: (_) => AuthorsService()),
       ],
       child: RunMaterialApp(),
     );

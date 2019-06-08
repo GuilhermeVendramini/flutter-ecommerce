@@ -11,6 +11,7 @@ class PostBloggerModel {
   final String likes;
   final String subtitle;
   final String content;
+  final int authorId;
   final List<Map<String, String>> gallery;
 
   PostBloggerModel({
@@ -24,6 +25,7 @@ class PostBloggerModel {
     @required this.likes,
     @required this.subtitle,
     @required this.content,
+    @required this.authorId,
     @required this.gallery,
   });
 }

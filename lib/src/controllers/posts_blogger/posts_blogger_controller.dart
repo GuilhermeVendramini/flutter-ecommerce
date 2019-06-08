@@ -6,12 +6,18 @@ class PostsBloggerController with ChangeNotifier {
   List<Map<String, dynamic>> _postsBloggerData;
   List<PostBloggerModel> _postsBlogger = [];
   Iterable<PostBloggerModel> _postBlogger;
+  List<PostBloggerModel> _postsOfAuthor = [];
   bool _isPostsBloggerLoaded;
 }
 
 class PostsBlogger extends PostsBloggerController {
   List<PostBloggerModel> get getPostsBlogger {
     return _postsBlogger;
+  }
+
+  List<PostBloggerModel> getPostsOfAuthor(int id) {
+    _postsOfAuthor = _postsBlogger.where((post) => post.authorId == id).toList();
+    return _postsOfAuthor;
   }
 
   PostBloggerModel getPostBlogger(int id) {
@@ -44,6 +50,7 @@ class PostsBloggerService extends PostsBlogger {
         likes: item['likes'],
         subtitle: item['subtitle'],
         content: item['content'],
+        authorId: item['author_id'],
         gallery: item['gallery'],
       );
       _postsBlogger.add(_postBlogger);
