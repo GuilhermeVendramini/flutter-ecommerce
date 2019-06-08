@@ -29,10 +29,7 @@ class PostBloggerCard extends StatelessWidget {
               padding: EdgeInsets.all(8.0),
               child: Row(
                 children: <Widget>[
-                  Hero(
-                    tag: _item.logo,
-                    child: CommonCircularLogo(_item.logo, 60.0, 60.0),
-                  ),
+                  CommonCircularLogo(_item.logo, 60.0, 60.0),
                   SizedBox(
                     width: 20.0,
                   ),

@@ -68,14 +68,11 @@ class _PostBrandScreenState extends State<PostBrandScreen> {
                       child: GestureDetector(
                         onTap: () {
                           Route route = MaterialPageRoute(
-                            builder: (context) => TimeLineBrandScreen(1),
+                            builder: (context) => TimeLineBrandScreen(_post.brandId),
                           );
                           Navigator.push(context, route);
                         },
-                        child: Hero(
-                          tag: _post.logo,
-                          child: CommonCircularLogo(_post.logo, 100.0, 100.0),
-                        ),
+                        child: CommonCircularLogo(_post.logo, 100.0, 100.0),
                       ),
                       left: (MediaQuery.of(context).size.width / 2) -
                           avatarRadius,
@@ -86,7 +83,7 @@ class _PostBrandScreenState extends State<PostBrandScreen> {
                 GestureDetector(
                   onTap: () {
                     Route route = MaterialPageRoute(
-                      builder: (context) => TimeLineBrandScreen(1),
+                      builder: (context) => TimeLineBrandScreen(_post.brandId),
                     );
                     Navigator.push(context, route);
                   },

@@ -17,7 +17,7 @@ class FeedsContent extends StatelessWidget {
     return Center(
       child: Container(
         width: targetWidth,
-        child: FeedsList(_feeds.getPostsBloggerItems),
+        child: FeedsList(_feeds.getPostsBlogger),
       ),
     );
   }

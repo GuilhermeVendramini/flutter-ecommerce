@@ -1,7 +1,10 @@
 import 'dart:ui';
 import 'package:flutter/material.dart';
+import 'package:flutter_ecommerce/src/controllers/brands/brands_controller.dart';
 import 'package:flutter_ecommerce/src/controllers/posts_brand/posts_brand_controller.dart';
-import 'package:flutter_ecommerce/src/models/post_brand_model.dart';
+import 'package:flutter_ecommerce/src/models/brand_model.dart';
+import 'package:flutter_ecommerce/src/widgets/components/followers.dart';
+import 'package:flutter_ecommerce/src/widgets/components/timeline_list.dart';
 import 'package:flutter_ecommerce/src/widgets/elements/common.dart';
 import 'package:provider/provider.dart';
 
@@ -19,81 +22,87 @@ class TimeLineBrandScreen extends StatefulWidget {
 class _TimeLineBrandScreenState extends State<TimeLineBrandScreen> {
   @override
   Widget build(BuildContext context) {
+    final double deviceWidth = MediaQuery.of(context).size.width;
+    final double targetWidth = deviceWidth > 650.0 ? 600.0 : deviceWidth * 0.95;
     final _posts = Provider.of<PostsBrandService>(context);
-    final PostBrandModel _post = _posts.getPostBrand(widget._id);
+    final _brands = Provider.of<BrandsService>(context);
+    BrandModel _brand = _brands.getBrand(widget._id);
 
     return WillPopScope(
       onWillPop: () async {
         return true;
       },
       child: Scaffold(
-        body: SingleChildScrollView(
-          child: Container(
-            child: Column(
-              children: <Widget>[
-                Stack(
-                  children: <Widget>[
-                    Container(
-                      padding: EdgeInsets.all(20.0),
-                      alignment: Alignment.center,
-                      height: 500.0,
-                      decoration: _boxDecoration(),
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: <Widget>[
-                          Spacer(
-                            flex: 4,
-                          ),
-                          CommonCircularLogo('assets/images/timberland.png', 100.0, 100.0),
-                          SizedBox(
-                            height: 30.0,
-                          ),
-                          CommonTitle('TIMBERLAND'),
-                          SizedBox(
-                            height: 20.0,
-                          ),
-                          CommonTitleOpacity('TIMBERLAND BOOTS, SHOES & CLOTHING OFFICAL COMMUNITY'),
-                          SizedBox(
-                            height: 30.0,
-                          ),
-                          CommonTitleOpacity('165k followers'),
-                          SizedBox(
-                            height: 20.0,
-                          ),
-                          _following(),
-                          SizedBox(
-                            height: 30.0,
-                          ),
-                          _seeInStore(),
-                          Spacer(
-                            flex: 1,
-                          ),
-                        ],
+        body: ListView(
+          children: <Widget>[
+            Container(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                mainAxisSize: MainAxisSize.min,
+                children: <Widget>[
+                  Stack(
+                    children: <Widget>[
+                      Container(
+                        padding: EdgeInsets.all(20.0),
+                        alignment: Alignment.center,
+                        height: 500.0,
+                        decoration: _boxDecoration(),
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: <Widget>[
+                            Spacer(
+                              flex: 4,
+                            ),
+                            Hero(
+                              tag: _brand.logo,
+                              child: CommonCircularLogo(
+                                _brand.logo,
+                                100.0,
+                                100.0,
+                              ),
+                            ),
+                            SizedBox(
+                              height: 30.0,
+                            ),
+                            CommonTitle(_brand.title),
+                            SizedBox(
+                              height: 20.0,
+                            ),
+                            CommonTitleOpacity(_brand.slogan),
+                            SizedBox(
+                              height: 30.0,
+                            ),
+                            CommonTitleOpacity('${_brand.followers} followers'),
+                            SizedBox(
+                              height: 20.0,
+                            ),
+                            Followers(),
+                            SizedBox(
+                              height: 30.0,
+                            ),
+                            _seeInStore(),
+                            Spacer(
+                              flex: 1,
+                            ),
+                          ],
+                        ),
                       ),
+                    ],
+                  ),
+                  SizedBox(
+                    height: 10,
+                  ),
+                  Center(
+                    child: Container(
+                      width: targetWidth,
+                      child: TimelineList(_posts.getPostsOfBrand(widget._id)),
                     ),
-                  ],
-                ),
-                SizedBox(
-                  height: 10,
-                ),
-                Text('BBB'),
-              ],
+                  ),
+                ],
+              ),
             ),
-          ),
+          ],
         ),
-      ),
-    );
-  }
-
-  Container _following() {
-    return Container(
-      height: 50.0,
-      width: 150.0,
-      child: RaisedButton(
-        child: CommonTitleOpacity('FOLLOWING'),
-        shape:
-        RoundedRectangleBorder(borderRadius: BorderRadius.circular(30.0)),
-        onPressed: () => {},
       ),
     );
   }
@@ -104,9 +113,7 @@ class _TimeLineBrandScreenState extends State<TimeLineBrandScreen> {
         fit: BoxFit.cover,
         image: AssetImage('assets/images/blur.jpg'),
         colorFilter: ColorFilter.mode(
-            Colors.black.withOpacity(0.4),
-            BlendMode.hardLight
-        ),
+            Colors.black.withOpacity(0.4), BlendMode.hardLight),
       ),
     );
   }

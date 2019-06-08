@@ -6,12 +6,18 @@ class PostsBrandController with ChangeNotifier {
   List<Map<String, dynamic>> _postsBrandData;
   List<PostBrandModel>  _postsBrand = [];
   Iterable<PostBrandModel>  _postBrand;
+  List<PostBrandModel> _postsOfBrand = [];
   bool _isPostsBrandLoaded;
 }
 
 class PostsBrand extends PostsBrandController {
-  List<PostBrandModel> get getPostsBrandItems {
+  List<PostBrandModel> get getPostsBrand {
     return _postsBrand;
+  }
+
+  List<PostBrandModel> getPostsOfBrand(int id) {
+    _postsOfBrand = _postsBrand.where((post) => post.brandId == id).toList();
+    return _postsOfBrand;
   }
 
   PostBrandModel getPostBrand(int id) {
@@ -38,6 +44,7 @@ class PostsBrandService extends PostsBrand {
         title: item['title'],
         image: 'assets/images/${item['image']}',
         brand: item['brand'],
+        brandId: item['brand_id'],
         logo: 'assets/images/${item['logo']}',
         time: item['time'],
         views: item['views'],

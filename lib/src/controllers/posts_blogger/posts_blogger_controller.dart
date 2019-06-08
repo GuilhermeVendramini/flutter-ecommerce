@@ -10,7 +10,7 @@ class PostsBloggerController with ChangeNotifier {
 }
 
 class PostsBlogger extends PostsBloggerController {
-  List<PostBloggerModel> get getPostsBloggerItems {
+  List<PostBloggerModel> get getPostsBlogger {
     return _postsBlogger;
   }
 
