@@ -33,72 +33,68 @@ class _TimeLineBrandScreenState extends State<TimeLineBrandScreen> {
         return true;
       },
       child: Scaffold(
-        body: ListView(
-          children: <Widget>[
-            Container(
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                mainAxisSize: MainAxisSize.min,
+        body: SingleChildScrollView(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            mainAxisSize: MainAxisSize.min,
+            children: <Widget>[
+              Stack(
                 children: <Widget>[
-                  Stack(
-                    children: <Widget>[
-                      Container(
-                        padding: EdgeInsets.all(20.0),
-                        alignment: Alignment.center,
-                        height: 500.0,
-                        decoration: _boxDecoration(),
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: <Widget>[
-                            Spacer(
-                              flex: 4,
-                            ),
-                            CommonCircularLogo(
-                              _brand.logo,
-                              140.0,
-                              140.0,
-                            ),
-                            SizedBox(
-                              height: 30.0,
-                            ),
-                            CommonTitle(_brand.title),
-                            SizedBox(
-                              height: 20.0,
-                            ),
-                            CommonTitleOpacity(_brand.slogan),
-                            SizedBox(
-                              height: 30.0,
-                            ),
-                            CommonTitleOpacity('${_brand.followers} followers'),
-                            SizedBox(
-                              height: 20.0,
-                            ),
-                            Followers(),
-                            SizedBox(
-                              height: 30.0,
-                            ),
-                            _seeInStore(),
-                            Spacer(
-                              flex: 2,
-                            ),
-                          ],
+                  Container(
+                    padding: EdgeInsets.all(20.0),
+                    alignment: Alignment.center,
+                    height: 500.0,
+                    decoration: _boxDecoration(),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: <Widget>[
+                        Spacer(
+                          flex: 4,
                         ),
-                      ),
-                    ],
-                  ),
-                  SizedBox(
-                    height: 10,
-                  ),
-                  Center(
-                    child: Container(
-                      width: targetWidth,
-                      child: TimelineBrandList(_posts.getPostsOfBrand(widget._id)),
+                        CommonCircularLogo(
+                          _brand.logo,
+                          140.0,
+                          140.0,
+                        ),
+                        SizedBox(
+                          height: 30.0,
+                        ),
+                        CommonTitle(_brand.title),
+                        SizedBox(
+                          height: 20.0,
+                        ),
+                        CommonTitleOpacity(_brand.slogan),
+                        SizedBox(
+                          height: 30.0,
+                        ),
+                        CommonTitleOpacity('${_brand.followers} followers'),
+                        SizedBox(
+                          height: 20.0,
+                        ),
+                        Followers(),
+                        SizedBox(
+                          height: 30.0,
+                        ),
+                        _seeInStore(),
+                        Spacer(
+                          flex: 2,
+                        ),
+                      ],
                     ),
                   ),
                 ],
               ),
-            ),
-          ],
+              SizedBox(
+                height: 10,
+              ),
+              Center(
+                child: Container(
+                  width: targetWidth,
+                  child: TimelineBrandList(_posts.getPostsOfBrand(widget._id)),
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );

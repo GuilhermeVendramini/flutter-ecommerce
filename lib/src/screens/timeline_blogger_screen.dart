@@ -33,70 +33,66 @@ class _TimeLineBloggerState extends State<TimeLineBloggerScreen> {
         return true;
       },
       child: Scaffold(
-        body: ListView(
-          children: <Widget>[
-            Container(
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                mainAxisSize: MainAxisSize.min,
+        body: SingleChildScrollView(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            mainAxisSize: MainAxisSize.min,
+            children: <Widget>[
+              Stack(
                 children: <Widget>[
-                  Stack(
-                    children: <Widget>[
-                      Container(
-                        padding: EdgeInsets.all(20.0),
-                        alignment: Alignment.center,
-                        height: 500.0,
-                        decoration: _boxDecoration(),
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: <Widget>[
-                            Spacer(
-                              flex: 4,
-                            ),
-                            CommonCircularLogo(
-                              _author.logo,
-                              140.0,
-                              140.0,
-                            ),
-                            SizedBox(
-                              height: 30.0,
-                            ),
-                            CommonTitle(_author.name),
-                            SizedBox(
-                              height: 20.0,
-                            ),
-                            CommonTitleOpacity(_author.slogan),
-                            SizedBox(
-                              height: 30.0,
-                            ),
-                            CommonTitleOpacity(
-                                '${_author.followers} followers'),
-                            SizedBox(
-                              height: 20.0,
-                            ),
-                            Followers(),
-                            Spacer(
-                              flex: 2,
-                            ),
-                          ],
+                  Container(
+                    padding: EdgeInsets.all(20.0),
+                    alignment: Alignment.center,
+                    height: 500.0,
+                    decoration: _boxDecoration(),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: <Widget>[
+                        Spacer(
+                          flex: 4,
                         ),
-                      ),
-                    ],
-                  ),
-                  SizedBox(
-                    height: 10,
-                  ),
-                  Center(
-                    child: Container(
-                      width: targetWidth,
-                      child: TimelineBloggerList(
-                          _posts.getPostsOfAuthor(widget._id)),
+                        CommonCircularLogo(
+                          _author.logo,
+                          140.0,
+                          140.0,
+                        ),
+                        SizedBox(
+                          height: 30.0,
+                        ),
+                        CommonTitle(_author.name),
+                        SizedBox(
+                          height: 20.0,
+                        ),
+                        CommonTitleOpacity(_author.slogan),
+                        SizedBox(
+                          height: 30.0,
+                        ),
+                        CommonTitleOpacity(
+                            '${_author.followers} followers'),
+                        SizedBox(
+                          height: 20.0,
+                        ),
+                        Followers(),
+                        Spacer(
+                          flex: 2,
+                        ),
+                      ],
                     ),
                   ),
                 ],
               ),
-            ),
-          ],
+              SizedBox(
+                height: 10,
+              ),
+              Center(
+                child: Container(
+                  width: targetWidth,
+                  child: TimelineBloggerList(
+                      _posts.getPostsOfAuthor(widget._id)),
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );
