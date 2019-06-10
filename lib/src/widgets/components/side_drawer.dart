@@ -45,6 +45,9 @@ Widget sideDrawer(BuildContext context) {
             title: Text(
               'Shop',
             ),
+            onTap: () {
+              Navigator.pushReplacementNamed(context, '/store');
+            },
           ),
           ListTile(
             leading: Icon(Icons.shop),

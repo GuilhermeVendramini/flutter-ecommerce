@@ -4,6 +4,7 @@ import 'package:flutter_ecommerce/src/controllers/brands/brands_controller.dart'
 import 'package:flutter_ecommerce/src/controllers/posts_blogger/posts_blogger_controller.dart';
 import 'package:flutter_ecommerce/src/controllers/posts_brand/posts_brand_controller.dart';
 import 'package:flutter_ecommerce/src/screens/explore_screen.dart';
+import 'package:flutter_ecommerce/src/screens/store_screen.dart';
 import 'package:provider/provider.dart';
 import 'package:flutter_ecommerce/src/screens/login_screen.dart';
 import 'package:flutter_ecommerce/src/screens/register_screen.dart';
@@ -80,6 +81,7 @@ class _RunMaterialAppState extends State<RunMaterialApp> {
         '/register': (BuildContext context) => RegisterScreen(),
         '/swipe': (BuildContext context) => SwipeScreen(),
         '/explore': (BuildContext context) => ExploreScreen(),
+        '/store': (BuildContext context) => StoreScreen(),
       },
     );
   }
