@@ -3,6 +3,7 @@ import 'package:flutter_ecommerce/src/controllers/authors/authors_controller.dar
 import 'package:flutter_ecommerce/src/controllers/brands/brands_controller.dart';
 import 'package:flutter_ecommerce/src/controllers/posts_blogger/posts_blogger_controller.dart';
 import 'package:flutter_ecommerce/src/controllers/posts_brand/posts_brand_controller.dart';
+import 'package:flutter_ecommerce/src/controllers/sales/sales_controller.dart';
 import 'package:flutter_ecommerce/src/screens/explore_screen.dart';
 import 'package:flutter_ecommerce/src/screens/store_screen.dart';
 import 'package:provider/provider.dart';
@@ -30,6 +31,7 @@ class _AppState extends State<App> {
         Provider<PostsBloggerService>(builder: (_) => PostsBloggerService()),
         Provider<BrandsService>(builder: (_) => BrandsService()),
         Provider<AuthorsService>(builder: (_) => AuthorsService()),
+        Provider<SalesService>(builder: (_) => SalesService()),
       ],
       child: RunMaterialApp(),
     );

@@ -1,13 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
+import 'package:flutter_ecommerce/src/widgets/elements/common.dart';
 
-class SliderMaster extends StatefulWidget {
-  final List<Map<String, String>> _slider;
+class SliderDefault extends StatefulWidget {
+  final List<dynamic> _slider;
 
-  SliderMaster(this._slider);
+  SliderDefault(this._slider);
 
   @override
-  _SliderMasterState createState() => _SliderMasterState();
+  _SliderDefaultState createState() => _SliderDefaultState();
 }
 
 List<T> map<T>(List list, Function handler) {
@@ -19,7 +20,7 @@ List<T> map<T>(List list, Function handler) {
   return result;
 }
 
-class _SliderMasterState extends State<SliderMaster> {
+class _SliderDefaultState extends State<SliderDefault> {
   int _current = 0;
 
   @override
@@ -47,17 +48,12 @@ class _SliderMasterState extends State<SliderMaster> {
           items: widget._slider.map((i) {
             return Builder(
               builder: (BuildContext context) {
-                return Container(
-                  width: MediaQuery.of(context).size.width,
-                  //margin: EdgeInsets.symmetric(horizontal: 5.0),
-                  decoration: BoxDecoration(
-                    image: DecorationImage(
-                      alignment: Alignment.center,
-                      image: ExactAssetImage(i['item']),
-                      fit: BoxFit.cover,
-                    ),
-                    //borderRadius: BorderRadius.all(Radius.circular(10.0)),
-                  ),
+                return Stack(
+                  fit: StackFit.expand,
+                  children: <Widget>[
+                    CommonStackBackground(i.image, 400.0),
+                    _sliderContent(i),
+                  ],
                 );
               },
             );
@@ -67,7 +63,7 @@ class _SliderMasterState extends State<SliderMaster> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: map<Widget>(
             widget._slider,
-                (index, url) {
+            (index, url) {
               return Container(
                 width: 8.0,
                 height: 8.0,
@@ -82,6 +78,35 @@ class _SliderMasterState extends State<SliderMaster> {
           ),
         ),
       ],
+    );
+  }
+
+  Widget _sliderContent(dynamic i) {
+    return Container(
+      padding: EdgeInsets.all(20.0),
+      height: 400.0,
+      decoration: commonStackGradient,
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        mainAxisSize: MainAxisSize.max,
+        mainAxisAlignment: MainAxisAlignment.end,
+        children: <Widget>[
+          CommonTitleShadow(i.title.toUpperCase()),
+          SizedBox(
+            height: 20.0,
+          ),
+          Text(
+            i.description,
+            style: TextStyle(
+              fontSize: 18.0,
+              fontWeight: FontWeight.w400,
+            ),
+          ),
+          SizedBox(
+            height: 20.0,
+          ),
+        ],
+      ),
     );
   }
 }

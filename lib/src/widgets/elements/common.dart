@@ -96,7 +96,7 @@ BoxDecoration commonStackGradient = BoxDecoration(
     end: FractionalOffset.bottomCenter,
     colors: [
       Colors.transparent,
-      Colors.black.withOpacity(0.8),
+      Colors.black.withOpacity(0.4),
     ],
     stops: [
       0.0,

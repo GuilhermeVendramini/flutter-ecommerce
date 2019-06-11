@@ -26,7 +26,7 @@ class _ExploreScreenSate extends State<ExploreScreen> {
           drawer: sideDrawer(context),
           appBar: AppBar(
             centerTitle: true,
-            title: _showSearch ? searchInput(context) : Text('Explore'),
+            title: _showSearch ? searchInput(context) : Text('EXPLORE'),
             bottom: TabBar(
               tabs: <Widget>[
                 Tab(
