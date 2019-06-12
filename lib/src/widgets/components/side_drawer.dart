@@ -43,7 +43,7 @@ Widget sideDrawer(BuildContext context) {
           ListTile(
             leading: Icon(Icons.shopping_cart),
             title: Text(
-              'Shop',
+              'Store',
             ),
             onTap: () {
               Navigator.pushReplacementNamed(context, '/store');

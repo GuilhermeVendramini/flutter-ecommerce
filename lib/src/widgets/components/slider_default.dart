@@ -25,42 +25,48 @@ class _SliderDefaultState extends State<SliderDefault> {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: <Widget>[
-        CarouselSlider(
-          height: 400,
-          autoPlayCurve: Curves.fastOutSlowIn,
-          aspectRatio: 16 / 9,
-          viewportFraction: 1.0,
-          initialPage: 0,
-          enableInfiniteScroll: true,
-          reverse: false,
-          autoPlay: true,
-          autoPlayInterval: Duration(seconds: 6),
-          autoPlayAnimationDuration: Duration(milliseconds: 800),
-          pauseAutoPlayOnTouch: Duration(seconds: 6),
-          scrollDirection: Axis.horizontal,
-          onPageChanged: (index) {
-            setState(() {
-              _current = index;
-            });
-          },
-          items: widget._slider.map((i) {
-            return Builder(
-              builder: (BuildContext context) {
-                return Stack(
-                  fit: StackFit.expand,
-                  children: <Widget>[
-                    CommonStackBackground(i.image, 400.0),
-                    _sliderContent(i),
-                  ],
-                );
-              },
-            );
-          }).toList(),
-        ),
-        _sliderDots(),
-      ],
+    if (widget._slider.length > 0) {
+      return Column(
+        children: <Widget>[
+          CarouselSlider(
+            height: 400,
+            autoPlayCurve: Curves.fastOutSlowIn,
+            aspectRatio: 16 / 9,
+            viewportFraction: 1.0,
+            initialPage: 0,
+            enableInfiniteScroll: true,
+            reverse: false,
+            autoPlay: true,
+            autoPlayInterval: Duration(seconds: 6),
+            autoPlayAnimationDuration: Duration(milliseconds: 800),
+            pauseAutoPlayOnTouch: Duration(seconds: 6),
+            scrollDirection: Axis.horizontal,
+            onPageChanged: (index) {
+              setState(() {
+                _current = index;
+              });
+            },
+            items: widget._slider.map((i) {
+              return Builder(
+                builder: (BuildContext context) {
+                  return Stack(
+                    fit: StackFit.expand,
+                    children: <Widget>[
+                      CommonStackBackground(i.image, 400.0),
+                      _sliderContent(i),
+                    ],
+                  );
+                },
+              );
+            }).toList(),
+          ),
+          _sliderDots(),
+        ],
+      );
+    }
+
+    return Center(
+      child: Text('Empty slider'),
     );
   }
 
@@ -69,7 +75,7 @@ class _SliderDefaultState extends State<SliderDefault> {
       mainAxisAlignment: MainAxisAlignment.center,
       children: map<Widget>(
         widget._slider,
-            (index, url) {
+        (index, url) {
           return Container(
             width: 8.0,
             height: 8.0,

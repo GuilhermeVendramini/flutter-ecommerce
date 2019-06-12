@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_ecommerce/src/controllers/brands/brands_controller.dart';
 import 'package:flutter_ecommerce/src/controllers/posts_brand/posts_brand_controller.dart';
 import 'package:flutter_ecommerce/src/models/brand_model.dart';
+import 'package:flutter_ecommerce/src/screens/store_brand_screen.dart';
 import 'package:flutter_ecommerce/src/widgets/components/followers.dart';
 import 'package:flutter_ecommerce/src/widgets/components/timeline_brand_list.dart';
 import 'package:flutter_ecommerce/src/widgets/elements/common.dart';
@@ -75,7 +76,7 @@ class _TimeLineBrandScreenState extends State<TimeLineBrandScreen> {
                         SizedBox(
                           height: 30.0,
                         ),
-                        _seeInStore(),
+                        _seeInStore(_brand.id),
                         Spacer(
                           flex: 2,
                         ),
@@ -111,26 +112,34 @@ class _TimeLineBrandScreenState extends State<TimeLineBrandScreen> {
     );
   }
 
-  Row _seeInStore() {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: <Widget>[
-        Text(
-          'SEE IN STORE',
-          style: TextStyle(
-            color: Colors.white.withOpacity(0.6),
-            fontSize: 16.0,
+  GestureDetector _seeInStore(int id) {
+    return GestureDetector(
+      onTap: () {
+        Route route = MaterialPageRoute(
+          builder: (context) => StoreBrandScreen(id),
+        );
+        Navigator.push(context, route);
+      },
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: <Widget>[
+          Text(
+            'SEE IN STORE',
+            style: TextStyle(
+              color: Colors.white.withOpacity(0.6),
+              fontSize: 16.0,
+            ),
           ),
-        ),
-        SizedBox(
-          width: 6.0,
-        ),
-        Icon(
-          Icons.arrow_forward_ios,
-          color: Colors.white.withOpacity(0.6),
-          size: 18.0,
-        ),
-      ],
+          SizedBox(
+            width: 6.0,
+          ),
+          Icon(
+            Icons.arrow_forward_ios,
+            color: Colors.white.withOpacity(0.6),
+            size: 18.0,
+          ),
+        ],
+      ),
     );
   }
 }

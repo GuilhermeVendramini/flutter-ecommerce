@@ -1,17 +1,24 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_ecommerce/src/content/store/store_home_content.dart';
+import 'package:flutter_ecommerce/src/content/store/store_brand_content.dart';
 import 'package:flutter_ecommerce/src/widgets/components/search.dart';
 import 'package:flutter_ecommerce/src/widgets/components/side_drawer.dart';
 
-class StoreHomeScreen extends StatefulWidget {
+class StoreBrandScreen extends StatefulWidget {
+  final int _id;
+
+  StoreBrandScreen(this._id);
+
   @override
   State<StatefulWidget> createState() {
-    return _StoreHomeScreenSate();
+    return _StoreBrandScreenSate(_id);
   }
 }
 
-class _StoreHomeScreenSate extends State<StoreHomeScreen> {
+class _StoreBrandScreenSate extends State<StoreBrandScreen> {
   bool _showSearch = false;
+  int _brandId;
+
+  _StoreBrandScreenSate(this._brandId);
 
   @override
   Widget build(BuildContext context) {
@@ -46,7 +53,7 @@ class _StoreHomeScreenSate extends State<StoreHomeScreen> {
             ),
           ],
         ),
-        body: StoreHomeContent(),
+        body: StoreBrandContent(_brandId),
       ),
     );
   }

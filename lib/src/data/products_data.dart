@@ -35,4 +35,13 @@ List<Map<String, dynamic>> productsData =  [
     'brand_id': 3,
     'price': 120.00,
   },
+  {
+    'id': 6,
+    'image': 'model-11.jpg',
+    'logo': 'rayban.png',
+    'title': 'Sunglasses X200',
+    'description': 'Beautiful Sunglasses X200',
+    'brand_id': 1,
+    'price': 40.00,
+  },
 ];
