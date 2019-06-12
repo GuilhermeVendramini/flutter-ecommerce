@@ -49,7 +49,7 @@ class PostBloggerCard extends StatelessWidget {
                 Container(
                   padding: EdgeInsets.all(20.0),
                   height: 300.0,
-                  decoration: commonStackGradient,
+                  decoration: BoxDecoration(gradient: commonLinearGradient),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     mainAxisSize: MainAxisSize.max,

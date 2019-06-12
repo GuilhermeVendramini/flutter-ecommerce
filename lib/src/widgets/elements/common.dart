@@ -90,19 +90,17 @@ class CommonStackBackground extends StatelessWidget {
   }
 }
 
-BoxDecoration commonStackGradient = BoxDecoration(
-  gradient: LinearGradient(
-    begin: FractionalOffset.topCenter,
-    end: FractionalOffset.bottomCenter,
-    colors: [
-      Colors.transparent,
-      Colors.black.withOpacity(0.4),
-    ],
-    stops: [
-      0.0,
-      1.0,
-    ],
-  ),
+LinearGradient commonLinearGradient = LinearGradient(
+  begin: FractionalOffset.topCenter,
+  end: FractionalOffset.bottomCenter,
+  colors: [
+    Colors.transparent,
+    Colors.black.withOpacity(0.4),
+  ],
+  stops: [
+    0.0,
+    1.0,
+  ],
 );
 
 class CommonTitle extends StatelessWidget {
@@ -116,6 +114,23 @@ class CommonTitle extends StatelessWidget {
       child: Text(
         _title,
         style: Theme.of(context).textTheme.display1,
+      ),
+    );
+  }
+}
+
+class CommonDescription extends StatelessWidget {
+  final String _description;
+
+  CommonDescription(this._description);
+
+  @override
+  Widget build(BuildContext context) {
+    return Text(
+      _description,
+      style: TextStyle(
+        fontSize: 18.0,
+        fontWeight: FontWeight.w400,
       ),
     );
   }

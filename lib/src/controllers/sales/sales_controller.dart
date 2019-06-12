@@ -31,7 +31,7 @@ class SalesService extends Sales {
         id: item['id'],
         title: item['title'],
         description: item['description'],
-        image: item['image'],
+        image: 'assets/images/${item['image']}',
         brandId: item['brand_id'],
         productId: item['product_id'],
       );

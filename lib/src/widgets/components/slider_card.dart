@@ -2,13 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter_ecommerce/src/widgets/elements/common.dart';
 
-class SliderDefault extends StatefulWidget {
+class SliderCard extends StatefulWidget {
   final List<dynamic> _slider;
 
-  SliderDefault(this._slider);
+  SliderCard(this._slider);
 
   @override
-  _SliderDefaultState createState() => _SliderDefaultState();
+  _SliderCardState createState() => _SliderCardState();
 }
 
 List<T> map<T>(List list, Function handler) {
@@ -20,7 +20,7 @@ List<T> map<T>(List list, Function handler) {
   return result;
 }
 
-class _SliderDefaultState extends State<SliderDefault> {
+class _SliderCardState extends State<SliderCard> {
   int _current = 0;
 
   @override
@@ -31,14 +31,15 @@ class _SliderDefaultState extends State<SliderDefault> {
           height: 400,
           autoPlayCurve: Curves.fastOutSlowIn,
           aspectRatio: 16 / 9,
-          viewportFraction: 1.0,
+          viewportFraction: 0.8,
           initialPage: 0,
           enableInfiniteScroll: true,
           reverse: false,
           autoPlay: true,
-          autoPlayInterval: Duration(seconds: 6),
+          autoPlayInterval: Duration(seconds: 4),
           autoPlayAnimationDuration: Duration(milliseconds: 800),
-          pauseAutoPlayOnTouch: Duration(seconds: 6),
+          pauseAutoPlayOnTouch: Duration(seconds: 10),
+          enlargeCenterPage: true,
           scrollDirection: Axis.horizontal,
           onPageChanged: (index) {
             setState(() {
@@ -48,12 +49,16 @@ class _SliderDefaultState extends State<SliderDefault> {
           items: widget._slider.map((i) {
             return Builder(
               builder: (BuildContext context) {
-                return Stack(
-                  fit: StackFit.expand,
-                  children: <Widget>[
-                    CommonStackBackground(i.image, 400.0),
-                    _sliderContent(i),
-                  ],
+                return Container(
+                  width: MediaQuery.of(context).size.width,
+                  margin: EdgeInsets.symmetric(horizontal: 5.0),
+                  child: Stack(
+                    fit: StackFit.expand,
+                    children: <Widget>[
+                      _sliderImage(i),
+                      _sliderContent(i),
+                    ],
+                  ),
                 );
               },
             );
@@ -69,7 +74,7 @@ class _SliderDefaultState extends State<SliderDefault> {
       mainAxisAlignment: MainAxisAlignment.center,
       children: map<Widget>(
         widget._slider,
-            (index, url) {
+        (index, url) {
           return Container(
             width: 8.0,
             height: 8.0,
@@ -85,11 +90,26 @@ class _SliderDefaultState extends State<SliderDefault> {
     );
   }
 
+  Widget _sliderImage(dynamic i) {
+    return Container(
+      decoration: BoxDecoration(
+        image: DecorationImage(
+          fit: BoxFit.cover,
+          image: AssetImage(
+            i.image,
+          ),
+        ),
+        borderRadius: BorderRadius.all(Radius.circular(10.0)),
+      ),
+      height: 400,
+    );
+  }
+
   Widget _sliderContent(dynamic i) {
     return Container(
       padding: EdgeInsets.all(20.0),
       height: 400.0,
-      decoration: BoxDecoration(gradient: commonLinearGradient),
+      decoration: _sliderBoxDecoration,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         mainAxisSize: MainAxisSize.max,
@@ -107,4 +127,9 @@ class _SliderDefaultState extends State<SliderDefault> {
       ),
     );
   }
+
+  BoxDecoration _sliderBoxDecoration = BoxDecoration(
+    borderRadius: BorderRadius.all(Radius.circular(10.0)),
+    gradient: commonLinearGradient,
+  );
 }

@@ -46,7 +46,7 @@ class _PostBrandScreenState extends State<PostBrandScreen> {
                     Container(
                       padding: EdgeInsets.all(20.0),
                       height: topWidgetHeight,
-                      decoration: commonStackGradient,
+                      decoration: BoxDecoration(gradient: commonLinearGradient),
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.center,
                         mainAxisSize: MainAxisSize.max,
