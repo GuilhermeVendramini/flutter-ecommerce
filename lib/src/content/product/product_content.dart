@@ -6,6 +6,10 @@ import 'package:flutter_ecommerce/src/widgets/elements/product.dart';
 import 'package:provider/provider.dart';
 
 class ProductContent extends StatelessWidget {
+  final ScrollController _controller;
+
+  ProductContent(this._controller);
+
   @override
   Widget build(BuildContext context) {
     final _sales = Provider.of<SalesService>(context);
@@ -15,6 +19,7 @@ class ProductContent extends StatelessWidget {
     }
 
     return SingleChildScrollView(
+      controller: _controller,
       child: Container(
         child: Column(
           children: <Widget>[
@@ -62,6 +67,9 @@ class ProductContent extends StatelessWidget {
           CommonContentHtmlBody(
               """<b>Lorem:</b> ipsum dolor sit amet. <br><b>Proin:</b> convallis.<br><b>Quisque:</b> interdum venenatis.<br><b>Cras vitae:</b> ipsum mauris."""),
           _productVariations(),
+          SizedBox(
+            height: 80.0,
+          ),
         ],
       ),
     );
