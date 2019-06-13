@@ -16,7 +16,6 @@ class InputLogin extends StatelessWidget {
 }
 
 class InputPassword extends StatelessWidget {
-
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -33,7 +32,6 @@ class InputPassword extends StatelessWidget {
 }
 
 class InputConfirmPassword extends StatelessWidget {
-
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -50,7 +48,6 @@ class InputConfirmPassword extends StatelessWidget {
 }
 
 class InputEmail extends StatelessWidget {
-
   @override
   Widget build(BuildContext context) {
     return Container(

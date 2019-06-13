@@ -32,7 +32,7 @@ class _RegisterScreenSate extends State<RegisterScreen> {
                     child: SingleChildScrollView(
                       child: ConstrainedBox(
                           constraints:
-                          BoxConstraints(minHeight: constraints.maxHeight),
+                              BoxConstraints(minHeight: constraints.maxHeight),
                           child: IntrinsicHeight(
                             child: Form(
                               child: Column(
@@ -66,7 +66,8 @@ class _RegisterScreenSate extends State<RegisterScreen> {
                                     SizedBox(
                                       height: 20.0,
                                     ),
-                                    Text('By creating an account you agree to our'),
+                                    Text(
+                                        'By creating an account you agree to our'),
                                     Text('User Agreement and Privacy policy.'),
                                     Spacer(),
                                   ]),

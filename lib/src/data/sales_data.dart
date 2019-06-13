@@ -1,19 +1,19 @@
-List<Map<String, dynamic>> salesData =  [
+List<Map<String, dynamic>> salesData = [
   {
     'id': 1,
     'image': 'product-3.jpg',
     'title': 'Jacket 30% OFF',
     'description': 'New Style collection with 30% OFF',
     'brand_id': 5,
-    'product_id': 1,
+    'product_id': 3,
   },
   {
     'id': 2,
     'image': 'product-4.jpg',
-    'title': 'Adidas special Sales',
+    'title': 'Nike special Sales',
     'description': 'All Clothes 70% OFF',
-    'brand_id': 2,
-    'product_id': 2,
+    'brand_id': 4,
+    'product_id': 4,
   },
   {
     'id': 4,
@@ -21,7 +21,7 @@ List<Map<String, dynamic>> salesData =  [
     'title': 'Adidas Blue Bag',
     'description': 'This week 70% OFF',
     'brand_id': 2,
-    'product_id': 6,
+    'product_id': 13,
   },
   {
     'id': 5,
@@ -37,7 +37,7 @@ List<Map<String, dynamic>> salesData =  [
     'title': 'Bag Old Style',
     'description': 'Timberland bag 40% OFF',
     'brand_id': 5,
-    'product_id': 8,
+    'product_id': 6,
   },
   {
     'id': 7,
@@ -45,7 +45,7 @@ List<Map<String, dynamic>> salesData =  [
     'title': 'Ray Bag',
     'description': 'Just today 50% OFF',
     'brand_id': 1,
-    'product_id': 10,
+    'product_id': 7,
   },
   {
     'id': 8,
@@ -53,7 +53,7 @@ List<Map<String, dynamic>> salesData =  [
     'title': 'Ray Bag Old Style',
     'description': 'Timberland bag 40% OFF',
     'brand_id': 1,
-    'product_id': 11,
+    'product_id': 8,
   },
   {
     'id': 9,
@@ -61,7 +61,7 @@ List<Map<String, dynamic>> salesData =  [
     'title': 'Nike Jacket 30% OFF',
     'description': 'New Style collection with 30% OFF',
     'brand_id': 4,
-    'product_id': 12,
+    'product_id': 9,
   },
   {
     'id': 10,
@@ -69,7 +69,7 @@ List<Map<String, dynamic>> salesData =  [
     'title': 'Nike special Sales',
     'description': 'All Clothes 70% OFF',
     'brand_id': 4,
-    'product_id': 13,
+    'product_id': 10,
   },
   {
     'id': 11,
@@ -77,7 +77,7 @@ List<Map<String, dynamic>> salesData =  [
     'title': 'Ferrari Jacket 30% OFF',
     'description': 'Collection with 30% OFF',
     'brand_id': 3,
-    'product_id': 14,
+    'product_id': 11,
   },
   {
     'id': 12,
@@ -85,6 +85,6 @@ List<Map<String, dynamic>> salesData =  [
     'title': 'Ferrari special Sales',
     'description': 'All Clothes 70% OFF',
     'brand_id': 3,
-    'product_id': 15,
+    'product_id': 12,
   },
 ];

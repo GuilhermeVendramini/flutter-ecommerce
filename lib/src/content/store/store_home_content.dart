@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_ecommerce/src/controllers/products/products_controller.dart';
 import 'package:flutter_ecommerce/src/controllers/sales/sales_controller.dart';
 import 'package:flutter_ecommerce/src/widgets/components/products_list.dart';
-import 'package:flutter_ecommerce/src/widgets/components/slider_card.dart';
-import 'package:flutter_ecommerce/src/widgets/components/slider_default.dart';
+import 'package:flutter_ecommerce/src/widgets/components/slider_card_product.dart';
+import 'package:flutter_ecommerce/src/widgets/components/slider_default_product.dart';
 import 'package:provider/provider.dart';
 
 class StoreHomeContent extends StatelessWidget {
@@ -24,7 +24,7 @@ class StoreHomeContent extends StatelessWidget {
       child: Container(
         child: Column(
           children: <Widget>[
-            SliderDefault(_sales.getSalesItems.getRange(0, 3).toList()),
+            SliderDefaultProduct(_sales.getSalesItems.getRange(0, 3).toList()),
             ProductsList(_products.getProductsItems.getRange(0, 2).toList()),
             SizedBox(
               height: 20.0,
@@ -57,7 +57,7 @@ class StoreHomeContent extends StatelessWidget {
           SizedBox(
             height: 20.0,
           ),
-          SliderCard(_sales.getSalesItems.getRange(2, 5).toList()),
+          SliderCardProduct(_sales.getSalesItems.getRange(2, 5).toList()),
         ],
       ),
     );

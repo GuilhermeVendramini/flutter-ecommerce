@@ -3,7 +3,6 @@ import 'package:flutter_ecommerce/src/models/product_model.dart';
 import 'package:flutter_ecommerce/src/widgets/components/product_card.dart';
 
 class ProductsList extends StatelessWidget {
-
   final List<ProductModel> _productsList;
 
   ProductsList(this._productsList);

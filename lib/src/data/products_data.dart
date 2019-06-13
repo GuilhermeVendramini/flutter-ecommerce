@@ -1,4 +1,4 @@
-List<Map<String, dynamic>> productsData =  [
+List<Map<String, dynamic>> productsData = [
   {
     'id': 2,
     'image': 'product-2.jpg',
@@ -8,7 +8,8 @@ List<Map<String, dynamic>> productsData =  [
     'brand_name': 'Adidas',
     'brand_id': 2,
     'price': 40.00,
-    'specification': """<b>Lorem:</b> ipsum dolor sit amet. <br><b>Proin:</b> convallis.<br><b>Quisque:</b> interdum venenatis.<br><b>Cras vitae:</b> ipsum mauris.""",
+    'specification':
+        """<b>Lorem:</b> ipsum dolor sit amet. <br><b>Proin:</b> convallis.<br><b>Quisque:</b> interdum venenatis.<br><b>Cras vitae:</b> ipsum mauris.""",
     'gallery': [
       {'image': 'product-2.jpg'},
       {'image': 'product-2.jpg'},
@@ -24,7 +25,8 @@ List<Map<String, dynamic>> productsData =  [
     'brand_name': 'Timberland',
     'brand_id': 5,
     'price': 50.00,
-    'specification': """<b>Lorem:</b> ipsum dolor sit amet. <br><b>Proin:</b> convallis.<br><b>Quisque:</b> interdum venenatis.<br><b>Cras vitae:</b> ipsum mauris.""",
+    'specification':
+        """<b>Lorem:</b> ipsum dolor sit amet. <br><b>Proin:</b> convallis.<br><b>Quisque:</b> interdum venenatis.<br><b>Cras vitae:</b> ipsum mauris.""",
     'gallery': [
       {'image': 'product-3.jpg'},
       {'image': 'product-3.jpg'},
@@ -40,7 +42,8 @@ List<Map<String, dynamic>> productsData =  [
     'brand_name': 'Nike',
     'brand_id': 4,
     'price': 20.00,
-    'specification': """<b>Lorem:</b> ipsum dolor sit amet. <br><b>Proin:</b> convallis.<br><b>Quisque:</b> interdum venenatis.<br><b>Cras vitae:</b> ipsum mauris.""",
+    'specification':
+        """<b>Lorem:</b> ipsum dolor sit amet. <br><b>Proin:</b> convallis.<br><b>Quisque:</b> interdum venenatis.<br><b>Cras vitae:</b> ipsum mauris.""",
     'gallery': [
       {'image': 'product-4.jpg'},
       {'image': 'product-4.jpg'},
@@ -56,7 +59,8 @@ List<Map<String, dynamic>> productsData =  [
     'brand_name': 'Ferrari',
     'brand_id': 3,
     'price': 120.00,
-    'specification': """<b>Lorem:</b> ipsum dolor sit amet. <br><b>Proin:</b> convallis.<br><b>Quisque:</b> interdum venenatis.<br><b>Cras vitae:</b> ipsum mauris.""",
+    'specification':
+        """<b>Lorem:</b> ipsum dolor sit amet. <br><b>Proin:</b> convallis.<br><b>Quisque:</b> interdum venenatis.<br><b>Cras vitae:</b> ipsum mauris.""",
     'gallery': [
       {'image': 'product-5.jpg'},
       {'image': 'product-5.jpg'},
@@ -64,19 +68,156 @@ List<Map<String, dynamic>> productsData =  [
     ],
   },
   {
+    'id': 7,
+    'image': 'bag-2.jpg',
+    'logo': 'adidas.png',
+    'title': 'City Bag',
+    'description': 'Just today 70% OFF',
+    'brand_name': 'Adidas',
+    'brand_id': 2,
+    'price': 20.00,
+    'specification':
+        """<b>Lorem:</b> ipsum dolor sit amet. <br><b>Proin:</b> convallis.<br><b>Quisque:</b> interdum venenatis.<br><b>Cras vitae:</b> ipsum mauris.""",
+    'gallery': [
+      {'image': 'bag-2.jpg'},
+      {'image': 'bag-2.jpg'},
+      {'image': 'bag-2.jpg'},
+    ],
+  },
+  {
     'id': 6,
-    'image': 'model-11.jpg',
+    'image': 'bag-3.jpg',
+    'logo': 'timberland.png',
+    'title': 'Bag Old Style',
+    'description': 'Timberland bag 40% OFF',
+    'brand_name': 'Timberland',
+    'brand_id': 5,
+    'price': 50.00,
+    'specification':
+        """<b>Lorem:</b> ipsum dolor sit amet. <br><b>Proin:</b> convallis.<br><b>Quisque:</b> interdum venenatis.<br><b>Cras vitae:</b> ipsum mauris.""",
+    'gallery': [
+      {'image': 'bag-3.jpg'},
+      {'image': 'bag-3.jpg'},
+      {'image': 'bag-3.jpg'},
+    ],
+  },
+  {
+    'id': 7,
+    'image': 'bag-2.jpg',
     'logo': 'rayban.png',
-    'title': 'Sunglasses X200',
-    'description': 'Beautiful Sunglasses X200',
+    'title': 'Ray Bag',
+    'description': 'Just today 50% OFF',
     'brand_name': 'Ray-Ban',
     'brand_id': 1,
-    'price': 40.00,
-    'specification': """<b>Lorem:</b> ipsum dolor sit amet. <br><b>Proin:</b> convallis.<br><b>Quisque:</b> interdum venenatis.<br><b>Cras vitae:</b> ipsum mauris.""",
+    'price': 120.00,
+    'specification':
+        """<b>Lorem:</b> ipsum dolor sit amet. <br><b>Proin:</b> convallis.<br><b>Quisque:</b> interdum venenatis.<br><b>Cras vitae:</b> ipsum mauris.""",
     'gallery': [
-      {'image': 'product-11.jpg'},
-      {'image': 'product-11.jpg'},
-      {'image': 'product-11.jpg'},
+      {'image': 'bag-2.jpg'},
+      {'image': 'bag-2.jpg'},
+      {'image': 'bag-2.jpg'},
+    ],
+  },
+  {
+    'id': 8,
+    'image': 'bag-3.jpg',
+    'logo': 'rayban.png',
+    'title': 'Ray Bag Old Style',
+    'description': 'Timberland bag 40% OFF',
+    'brand_name': 'Ray-Ban',
+    'brand_id': 1,
+    'price': 90.00,
+    'specification':
+        """<b>Lorem:</b> ipsum dolor sit amet. <br><b>Proin:</b> convallis.<br><b>Quisque:</b> interdum venenatis.<br><b>Cras vitae:</b> ipsum mauris.""",
+    'gallery': [
+      {'image': 'bag-3.jpg'},
+      {'image': 'bag-3.jpg'},
+      {'image': 'bag-3.jpg'},
+    ],
+  },
+  {
+    'id': 9,
+    'image': 'product-3.jpg',
+    'logo': 'nike.jpg',
+    'title': 'Nike Jacket 30% OFF',
+    'description': 'New Style collection with 30% OFF',
+    'brand_name': 'Nike',
+    'brand_id': 4,
+    'price': 80.00,
+    'specification':
+        """<b>Lorem:</b> ipsum dolor sit amet. <br><b>Proin:</b> convallis.<br><b>Quisque:</b> interdum venenatis.<br><b>Cras vitae:</b> ipsum mauris.""",
+    'gallery': [
+      {'image': 'product-3.jpg'},
+      {'image': 'product-3.jpg'},
+      {'image': 'product-3.jpg'},
+    ],
+  },
+  {
+    'id': 10,
+    'image': 'product-4.jpg',
+    'logo': 'nike.jpg',
+    'title': 'Nike special Sales',
+    'description': 'All Clothes 70% OFF',
+    'brand_name': 'Nike',
+    'brand_id': 4,
+    'price': 74.00,
+    'specification':
+        """<b>Lorem:</b> ipsum dolor sit amet. <br><b>Proin:</b> convallis.<br><b>Quisque:</b> interdum venenatis.<br><b>Cras vitae:</b> ipsum mauris.""",
+    'gallery': [
+      {'image': 'product-4.jpg'},
+      {'image': 'product-4.jpg'},
+      {'image': 'product-4.jpg'},
+    ],
+  },
+  {
+    'id': 11,
+    'image': 'product-3.jpg',
+    'logo': 'ferrari.jpg',
+    'title': 'Ferrari Jacket 30% OFF',
+    'description': 'Collection with 30% OFF',
+    'brand_name': 'Ferrari',
+    'brand_id': 3,
+    'price': 37.00,
+    'specification':
+        """<b>Lorem:</b> ipsum dolor sit amet. <br><b>Proin:</b> convallis.<br><b>Quisque:</b> interdum venenatis.<br><b>Cras vitae:</b> ipsum mauris.""",
+    'gallery': [
+      {'image': 'product-3.jpg'},
+      {'image': 'product-3.jpg'},
+      {'image': 'product-3.jpg'},
+    ],
+  },
+  {
+    'id': 12,
+    'image': 'product-4.jpg',
+    'logo': 'ferrari.jpg',
+    'title': 'Ferrari special Sales',
+    'description': 'All Clothes 70% OFF',
+    'brand_name': 'Ferrari',
+    'brand_id': 3,
+    'price': 140.00,
+    'specification':
+        """<b>Lorem:</b> ipsum dolor sit amet. <br><b>Proin:</b> convallis.<br><b>Quisque:</b> interdum venenatis.<br><b>Cras vitae:</b> ipsum mauris.""",
+    'gallery': [
+      {'image': 'product-4.jpg'},
+      {'image': 'product-4.jpg'},
+      {'image': 'product-4.jpg'},
+    ],
+  },
+  {
+    'id': 13,
+    'image': 'bag-1.jpg',
+    'logo': 'adidas.png',
+    'title': 'Adidas Blue Bag',
+    'description': 'This week 70% OFF',
+    'brand_name': 'Adidas',
+    'brand_id': 2,
+    'price': 55.00,
+    'specification':
+        """<b>Lorem:</b> ipsum dolor sit amet. <br><b>Proin:</b> convallis.<br><b>Quisque:</b> interdum venenatis.<br><b>Cras vitae:</b> ipsum mauris.""",
+    'gallery': [
+      {'image': 'bag-1.jpg'},
+      {'image': 'bag-1.jpg'},
+      {'image': 'bag-1.jpg'},
     ],
   },
 ];

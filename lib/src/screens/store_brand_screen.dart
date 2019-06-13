@@ -43,13 +43,11 @@ class _StoreBrandScreenSate extends State<StoreBrandScreen> {
             ),
             IconButton(
               icon: Icon(Icons.tune),
-              onPressed: () {
-              },
+              onPressed: () {},
             ),
             IconButton(
               icon: Icon(Icons.shopping_cart),
-              onPressed: () {
-              },
+              onPressed: () {},
             ),
           ],
         ),

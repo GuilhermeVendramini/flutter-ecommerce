@@ -1,14 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
+import 'package:flutter_ecommerce/src/screens/product_screen.dart';
 import 'package:flutter_ecommerce/src/widgets/elements/common.dart';
 
-class SliderDefault extends StatefulWidget {
+class SliderDefaultProduct extends StatefulWidget {
   final List<dynamic> _slider;
 
-  SliderDefault(this._slider);
+  SliderDefaultProduct(this._slider);
 
   @override
-  _SliderDefaultState createState() => _SliderDefaultState();
+  _SliderDefaultProductState createState() => _SliderDefaultProductState();
 }
 
 List<T> map<T>(List list, Function handler) {
@@ -20,7 +21,7 @@ List<T> map<T>(List list, Function handler) {
   return result;
 }
 
-class _SliderDefaultState extends State<SliderDefault> {
+class _SliderDefaultProductState extends State<SliderDefaultProduct> {
   int _current = 0;
 
   @override
@@ -92,24 +93,32 @@ class _SliderDefaultState extends State<SliderDefault> {
   }
 
   Widget _sliderContent(dynamic i) {
-    return Container(
-      padding: EdgeInsets.all(20.0),
-      height: 400.0,
-      decoration: BoxDecoration(gradient: commonLinearGradient),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.stretch,
-        mainAxisSize: MainAxisSize.max,
-        mainAxisAlignment: MainAxisAlignment.end,
-        children: <Widget>[
-          CommonTitleShadow(i.title.toUpperCase()),
-          SizedBox(
-            height: 20.0,
-          ),
-          CommonDescription(i.description),
-          SizedBox(
-            height: 20.0,
-          ),
-        ],
+    return GestureDetector(
+      onTap: () {
+        Route route = MaterialPageRoute(
+          builder: (context) => ProductScreen(i.productId),
+        );
+        Navigator.push(context, route);
+      },
+      child: Container(
+        padding: EdgeInsets.all(20.0),
+        height: 400.0,
+        decoration: BoxDecoration(gradient: commonLinearGradient),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          mainAxisSize: MainAxisSize.max,
+          mainAxisAlignment: MainAxisAlignment.end,
+          children: <Widget>[
+            CommonTitleShadow(i.title.toUpperCase()),
+            SizedBox(
+              height: 20.0,
+            ),
+            CommonDescription(i.description),
+            SizedBox(
+              height: 20.0,
+            ),
+          ],
+        ),
       ),
     );
   }

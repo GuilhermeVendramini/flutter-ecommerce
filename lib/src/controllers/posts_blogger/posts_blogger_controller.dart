@@ -16,7 +16,8 @@ class PostsBlogger extends PostsBloggerController {
   }
 
   List<PostBloggerModel> getPostsOfAuthor(int id) {
-    _postsOfAuthor = _postsBlogger.where((post) => post.authorId == id).toList();
+    _postsOfAuthor =
+        _postsBlogger.where((post) => post.authorId == id).toList();
     return _postsOfAuthor;
   }
 
@@ -58,5 +59,4 @@ class PostsBloggerService extends PostsBlogger {
     _isPostsBloggerLoaded = true;
     return null;
   }
-
 }

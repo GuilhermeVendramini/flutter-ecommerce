@@ -3,7 +3,7 @@ import 'package:flutter_ecommerce/src/controllers/products/products_controller.d
 import 'package:flutter_ecommerce/src/controllers/sales/sales_controller.dart';
 import 'package:flutter_ecommerce/src/screens/store_home_screen.dart';
 import 'package:flutter_ecommerce/src/widgets/components/products_list.dart';
-import 'package:flutter_ecommerce/src/widgets/components/slider_default.dart';
+import 'package:flutter_ecommerce/src/widgets/components/slider_default_product.dart';
 import 'package:provider/provider.dart';
 
 class StoreBrandContent extends StatelessWidget {
@@ -28,7 +28,7 @@ class StoreBrandContent extends StatelessWidget {
       child: Container(
         child: Column(
           children: <Widget>[
-            SliderDefault(_sales.getSalesItems
+            SliderDefaultProduct(_sales.getSalesItems
                 .where((brand) => brand.brandId == _brandId)
                 .toList()),
             ProductsList(_products.getProductsItems

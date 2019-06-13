@@ -143,7 +143,8 @@ class _SwipeScreenSate extends State<SwipeScreen> {
                           ),
                           GestureDetector(
                             onTap: () {
-                              Navigator.pushReplacementNamed(context, '/explore');
+                              Navigator.pushReplacementNamed(
+                                  context, '/explore');
                             },
                             child: Container(
                                 width: targetWidth,

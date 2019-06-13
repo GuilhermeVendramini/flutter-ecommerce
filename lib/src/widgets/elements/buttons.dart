@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'dart:ui';
 
-class ButtonLoginScreen extends StatelessWidget{
+class ButtonLoginScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -15,16 +15,16 @@ class ButtonLoginScreen extends StatelessWidget{
           ),
         ),
         shape:
-        RoundedRectangleBorder(borderRadius: BorderRadius.circular(30.0)),
+            RoundedRectangleBorder(borderRadius: BorderRadius.circular(30.0)),
         onPressed: () => {
-          Navigator.pushReplacementNamed(context, '/login'),
-        },
+              Navigator.pushReplacementNamed(context, '/login'),
+            },
       ),
     );
   }
 }
 
-class ButtonLogin extends StatelessWidget{
+class ButtonLogin extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -41,8 +41,8 @@ class ButtonLogin extends StatelessWidget{
           borderRadius: BorderRadius.circular(30.0),
         ),
         onPressed: () => {
-          Navigator.pushReplacementNamed(context, '/swipe'),
-        },
+              Navigator.pushReplacementNamed(context, '/swipe'),
+            },
       ),
     );
   }
@@ -67,8 +67,8 @@ class ButtonRegister extends StatelessWidget {
           side: BorderSide(color: Colors.white),
         ),
         onPressed: () => {
-          Navigator.pushReplacementNamed(context, '/'),
-        },
+              Navigator.pushReplacementNamed(context, '/'),
+            },
       ),
     );
   }
@@ -93,8 +93,8 @@ class ButtonRegisterSreen extends StatelessWidget {
           side: BorderSide(color: Colors.white),
         ),
         onPressed: () => {
-          Navigator.pushReplacementNamed(context, '/register'),
-        },
+              Navigator.pushReplacementNamed(context, '/register'),
+            },
       ),
     );
   }

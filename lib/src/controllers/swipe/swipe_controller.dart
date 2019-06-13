@@ -28,10 +28,8 @@ class SwipeService extends Swipe {
     _swipeCards = [];
     _swipeData = swipeData;
     _swipeData.forEach((item) {
-      SwipeModel  _swipe = SwipeModel(
-        title: item['title'],
-        image: 'assets/images/${item['image']}'
-      );
+      SwipeModel _swipe = SwipeModel(
+          title: item['title'], image: 'assets/images/${item['image']}');
       _swipeCards.add(SwipeCard(_swipe));
     });
     _isSwipeLoaded = true;

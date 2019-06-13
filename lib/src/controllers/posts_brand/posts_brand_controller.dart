@@ -4,8 +4,8 @@ import 'package:flutter_ecommerce/src/models/post_brand_model.dart';
 
 class PostsBrandController with ChangeNotifier {
   List<Map<String, dynamic>> _postsBrandData;
-  List<PostBrandModel>  _postsBrand = [];
-  Iterable<PostBrandModel>  _postBrand;
+  List<PostBrandModel> _postsBrand = [];
+  Iterable<PostBrandModel> _postBrand;
   List<PostBrandModel> _postsOfBrand = [];
   bool _isPostsBrandLoaded;
 }

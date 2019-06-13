@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_ecommerce/src/data/products_data.dart';
-import 'package:flutter_ecommerce/src/models/gallery_model.dart';
+import 'package:flutter_ecommerce/src/models/slider_model.dart';
 import 'package:flutter_ecommerce/src/models/product_model.dart';
 
 class ProductsController with ChangeNotifier {
@@ -34,13 +34,10 @@ class ProductsService extends Products {
     _products = [];
     _productsData = productsData;
     _productsData.forEach((item) {
-
-      List<GalleryModel> _gallery = [];
-      item['gallery'].forEach((galleryItem){
-        _gallery.add(GalleryModel(
+      List<SliderModel> _gallery = [];
+      item['gallery'].forEach((galleryItem) {
+        _gallery.add(SliderModel(
           image: 'assets/images/${galleryItem['image']}',
-          title: '',
-          description: '',
         ));
       });
 

@@ -15,11 +15,11 @@ class SwipeCard extends StatelessWidget {
       height: 400,
       width: 300,
       decoration: BoxDecoration(
-          image: DecorationImage(
-            image: ExactAssetImage(_item.image),
-            fit: BoxFit.cover,
-          ),
-          borderRadius: BorderRadius.all(Radius.circular(8)),
+        image: DecorationImage(
+          image: ExactAssetImage(_item.image),
+          fit: BoxFit.cover,
+        ),
+        borderRadius: BorderRadius.all(Radius.circular(8)),
       ),
       child: CommonTitleShadow(_item.title),
     );

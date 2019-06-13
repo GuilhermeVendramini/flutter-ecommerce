@@ -56,8 +56,8 @@ class _PostBloggerScreenState extends State<PostBloggerScreen> {
                           SizedBox(
                             height: 20.0,
                           ),
-                          CommonInteractivity(
-                              _post.views, _post.likes, MainAxisAlignment.center),
+                          CommonInteractivity(_post.views, _post.likes,
+                              MainAxisAlignment.center),
                           SizedBox(
                             height: 60.0,
                           ),
@@ -68,7 +68,8 @@ class _PostBloggerScreenState extends State<PostBloggerScreen> {
                       child: GestureDetector(
                         onTap: () {
                           Route route = MaterialPageRoute(
-                            builder: (context) => TimeLineBloggerScreen(_post.authorId),
+                            builder: (context) =>
+                                TimeLineBloggerScreen(_post.authorId),
                           );
                           Navigator.push(context, route);
                         },
@@ -83,7 +84,8 @@ class _PostBloggerScreenState extends State<PostBloggerScreen> {
                 GestureDetector(
                   onTap: () {
                     Route route = MaterialPageRoute(
-                      builder: (context) => TimeLineBloggerScreen(_post.authorId),
+                      builder: (context) =>
+                          TimeLineBloggerScreen(_post.authorId),
                     );
                     Navigator.push(context, route);
                   },

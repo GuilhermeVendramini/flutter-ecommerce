@@ -67,8 +67,7 @@ class _TimeLineBloggerState extends State<TimeLineBloggerScreen> {
                         SizedBox(
                           height: 30.0,
                         ),
-                        CommonTitleOpacity(
-                            '${_author.followers} followers'),
+                        CommonTitleOpacity('${_author.followers} followers'),
                         SizedBox(
                           height: 20.0,
                         ),
@@ -87,8 +86,8 @@ class _TimeLineBloggerState extends State<TimeLineBloggerScreen> {
               Center(
                 child: Container(
                   width: targetWidth,
-                  child: TimelineBloggerList(
-                      _posts.getPostsOfAuthor(widget._id)),
+                  child:
+                      TimelineBloggerList(_posts.getPostsOfAuthor(widget._id)),
                 ),
               ),
             ],

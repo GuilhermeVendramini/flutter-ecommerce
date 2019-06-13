@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'dart:ui';
 
-class BackgroundImageBlur extends StatelessWidget{
+class BackgroundImageBlur extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -21,7 +21,7 @@ class BackgroundImageBlur extends StatelessWidget{
     return DecorationImage(
       fit: BoxFit.cover,
       colorFilter:
-      ColorFilter.mode(Colors.black.withOpacity(0.4), BlendMode.dstIn),
+          ColorFilter.mode(Colors.black.withOpacity(0.4), BlendMode.dstIn),
       image: AssetImage('assets/images/model-0.jpg'),
     );
   }

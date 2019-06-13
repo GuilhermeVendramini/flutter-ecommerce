@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_ecommerce/src/models/gallery_model.dart';
+import 'package:flutter_ecommerce/src/models/slider_model.dart';
 
 class ProductModel {
   final int id;
@@ -11,7 +11,7 @@ class ProductModel {
   final double price;
   final String logo;
   final String specification;
-  final List<GalleryModel> gallery;
+  final List<SliderModel> gallery;
 
   ProductModel({
     @required this.id,

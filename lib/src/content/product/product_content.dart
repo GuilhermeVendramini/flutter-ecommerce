@@ -12,7 +12,6 @@ class ProductContent extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
     return SingleChildScrollView(
       controller: _controller,
       child: Container(
