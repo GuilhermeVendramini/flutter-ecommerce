@@ -6,6 +6,7 @@ import 'package:flutter_ecommerce/src/controllers/posts_brand/posts_brand_contro
 import 'package:flutter_ecommerce/src/controllers/products/products_controller.dart';
 import 'package:flutter_ecommerce/src/controllers/sales/sales_controller.dart';
 import 'package:flutter_ecommerce/src/screens/explore_screen.dart';
+import 'package:flutter_ecommerce/src/screens/product_screen.dart';
 import 'package:flutter_ecommerce/src/screens/store_home_screen.dart';
 import 'package:provider/provider.dart';
 import 'package:flutter_ecommerce/src/screens/login_screen.dart';
@@ -52,7 +53,7 @@ class _RunMaterialAppState extends State<RunMaterialApp> {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: "Flutter E-commerce",
-      home: StartScreen(),
+      home: ProductScreen(1), //StartScreen(),
       theme: ThemeData(
         brightness: Brightness.dark,
         textTheme: TextTheme(

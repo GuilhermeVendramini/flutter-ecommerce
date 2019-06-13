@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_html/flutter_html.dart';
 
 class CommonCircularLogo extends StatelessWidget {
   final String _logo;
@@ -190,6 +191,24 @@ class CommonTitleContent extends StatelessWidget {
   }
 }
 
+class CommonSubTitleContent extends StatelessWidget {
+  final String _title;
+
+  CommonSubTitleContent(this._title);
+
+  @override
+  Widget build(BuildContext context) {
+    return Text(
+      _title,
+      style: TextStyle(
+        color: Colors.black87,
+        fontSize: 18.0,
+        fontWeight: FontWeight.w600,
+      ),
+    );
+  }
+}
+
 class CommonContentBody extends StatelessWidget {
   final String _body;
 
@@ -200,6 +219,24 @@ class CommonContentBody extends StatelessWidget {
     return Text(
       _body,
       style: TextStyle(
+        color: Colors.black54,
+        fontSize: 18.0,
+        fontWeight: FontWeight.w400,
+      ),
+    );
+  }
+}
+
+class CommonContentHtmlBody extends StatelessWidget {
+  final String _body;
+
+  CommonContentHtmlBody(this._body);
+
+  @override
+  Widget build(BuildContext context) {
+    return Html(
+      data: _body,
+      defaultTextStyle: TextStyle(
         color: Colors.black54,
         fontSize: 18.0,
         fontWeight: FontWeight.w400,

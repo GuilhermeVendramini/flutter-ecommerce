@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_ecommerce/src/models/product_model.dart';
+import 'package:flutter_ecommerce/src/screens/product_screen.dart';
 import 'package:flutter_ecommerce/src/widgets/elements/common.dart';
 
 class ProductCard extends StatelessWidget {
@@ -11,10 +12,10 @@ class ProductCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-/*        Route route = MaterialPageRoute(
-          builder: (context) => PostBrandScreen(_item.id),
+        Route route = MaterialPageRoute(
+          builder: (context) => ProductScreen(_item.id),
         );
-        Navigator.push(context, route);*/
+        Navigator.push(context, route);
       },
       child: Container(
         padding: EdgeInsets.all(20.0),
