@@ -1,22 +1,17 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_ecommerce/src/controllers/sales/sales_controller.dart';
+import 'package:flutter_ecommerce/src/models/product_model.dart';
 import 'package:flutter_ecommerce/src/widgets/components/slider_card.dart';
 import 'package:flutter_ecommerce/src/widgets/elements/common.dart';
 import 'package:flutter_ecommerce/src/widgets/elements/product.dart';
-import 'package:provider/provider.dart';
 
 class ProductContent extends StatelessWidget {
   final ScrollController _controller;
+  final ProductModel _product;
 
-  ProductContent(this._controller);
+  ProductContent(this._controller, this._product);
 
   @override
   Widget build(BuildContext context) {
-    final _sales = Provider.of<SalesService>(context);
-
-    if (_sales.isSalesLoaded == null) {
-      _sales.loadSales();
-    }
 
     return SingleChildScrollView(
       controller: _controller,
@@ -26,7 +21,7 @@ class ProductContent extends StatelessWidget {
             SizedBox(
               height: 20.0,
             ),
-            SliderCard(_sales.getSalesItems.getRange(2, 5).toList()),
+            SliderCard(_product.gallery.toList()),
             SizedBox(
               height: 10.0,
             ),
@@ -51,21 +46,19 @@ class ProductContent extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
-          CommonTitleContent('Uniform Ware 104'),
+          CommonTitleContent(_product.title),
           SizedBox(
             height: 20.0,
           ),
-          CommonContentBody(
-              'Proin convallis ligula sed diam hendrerit, eget consectetur nibh facilisis.'),
+          CommonContentBody(_product.description),
           SizedBox(
             height: 20.0,
           ),
-          CommonSubTitleContent('SPECIFICATION'),
+          CommonSubTitleContent('Specification'),
           SizedBox(
             height: 10.0,
           ),
-          CommonContentHtmlBody(
-              """<b>Lorem:</b> ipsum dolor sit amet. <br><b>Proin:</b> convallis.<br><b>Quisque:</b> interdum venenatis.<br><b>Cras vitae:</b> ipsum mauris."""),
+          CommonContentHtmlBody(_product.specification),
           _productVariations(),
           SizedBox(
             height: 80.0,
@@ -91,7 +84,7 @@ class ProductContent extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
-              CommonSubTitleContent('COLOR'),
+              CommonSubTitleContent('Color'),
               SizedBox(
                 height: 10.0,
               ),
@@ -101,9 +94,9 @@ class ProductContent extends StatelessWidget {
                   spacing: 10.0,
                   runSpacing: 10.0,
                   children: <Widget>[
-                    ProductCircularColor(Colors.red[200]),
-                    ProductCircularColor(Colors.blue[200]),
-                    ProductCircularColor(Colors.green[200]),
+                    ProductCircularColor(Colors.brown.shade900),
+                    ProductCircularColor(Colors.grey.shade900),
+                    ProductCircularColor(Colors.deepPurple.shade900),
                   ],
                 ),
               ),
@@ -112,11 +105,11 @@ class ProductContent extends StatelessWidget {
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
-              CommonTitleContent('PRICE'),
+              CommonTitleContent('Price'),
               SizedBox(
                 height: 4.0,
               ),
-              _productPrice(100.00),
+              _productPrice(_product.price),
             ],
           ),
         ],

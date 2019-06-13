@@ -5,8 +5,15 @@ List<Map<String, dynamic>> productsData =  [
     'logo': 'adidas.png',
     'title': 'Adidas Jacket',
     'description': 'Comfort and Style',
+    'brand_name': 'Adidas',
     'brand_id': 2,
     'price': 40.00,
+    'specification': """<b>Lorem:</b> ipsum dolor sit amet. <br><b>Proin:</b> convallis.<br><b>Quisque:</b> interdum venenatis.<br><b>Cras vitae:</b> ipsum mauris.""",
+    'gallery': [
+      {'image': 'product-2.jpg'},
+      {'image': 'product-2.jpg'},
+      {'image': 'product-2.jpg'},
+    ],
   },
   {
     'id': 3,
@@ -14,8 +21,15 @@ List<Map<String, dynamic>> productsData =  [
     'logo': 'timberland.png',
     'title': 'Sweatshirt Timberland',
     'description': 'Brown Sweatshirt',
+    'brand_name': 'Timberland',
     'brand_id': 5,
     'price': 50.00,
+    'specification': """<b>Lorem:</b> ipsum dolor sit amet. <br><b>Proin:</b> convallis.<br><b>Quisque:</b> interdum venenatis.<br><b>Cras vitae:</b> ipsum mauris.""",
+    'gallery': [
+      {'image': 'product-3.jpg'},
+      {'image': 'product-3.jpg'},
+      {'image': 'product-3.jpg'},
+    ],
   },
   {
     'id': 4,
@@ -23,8 +37,15 @@ List<Map<String, dynamic>> productsData =  [
     'logo': 'nike.jpg',
     'title': 'T-Shirts skull',
     'description': 'New T-Shirt Skull',
+    'brand_name': 'Nike',
     'brand_id': 4,
     'price': 20.00,
+    'specification': """<b>Lorem:</b> ipsum dolor sit amet. <br><b>Proin:</b> convallis.<br><b>Quisque:</b> interdum venenatis.<br><b>Cras vitae:</b> ipsum mauris.""",
+    'gallery': [
+      {'image': 'product-4.jpg'},
+      {'image': 'product-4.jpg'},
+      {'image': 'product-4.jpg'},
+    ],
   },
   {
     'id': 5,
@@ -32,8 +53,15 @@ List<Map<String, dynamic>> productsData =  [
     'logo': 'ferrari.jpg',
     'title': 'Ferrari Blazer',
     'description': 'Classic and beautiful Ferrari Blazer',
+    'brand_name': 'Ferrari',
     'brand_id': 3,
     'price': 120.00,
+    'specification': """<b>Lorem:</b> ipsum dolor sit amet. <br><b>Proin:</b> convallis.<br><b>Quisque:</b> interdum venenatis.<br><b>Cras vitae:</b> ipsum mauris.""",
+    'gallery': [
+      {'image': 'product-5.jpg'},
+      {'image': 'product-5.jpg'},
+      {'image': 'product-5.jpg'},
+    ],
   },
   {
     'id': 6,
@@ -41,7 +69,14 @@ List<Map<String, dynamic>> productsData =  [
     'logo': 'rayban.png',
     'title': 'Sunglasses X200',
     'description': 'Beautiful Sunglasses X200',
+    'brand_name': 'Ray-Ban',
     'brand_id': 1,
     'price': 40.00,
+    'specification': """<b>Lorem:</b> ipsum dolor sit amet. <br><b>Proin:</b> convallis.<br><b>Quisque:</b> interdum venenatis.<br><b>Cras vitae:</b> ipsum mauris.""",
+    'gallery': [
+      {'image': 'product-11.jpg'},
+      {'image': 'product-11.jpg'},
+      {'image': 'product-11.jpg'},
+    ],
   },
 ];

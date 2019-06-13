@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_ecommerce/src/content/product/product_content.dart';
+import 'package:flutter_ecommerce/src/models/product_model.dart';
+import 'package:flutter_ecommerce/src/controllers/products/products_controller.dart';
 import 'package:flutter_ecommerce/src/widgets/components/product.dart';
 import 'package:flutter_ecommerce/src/widgets/components/search.dart';
 import 'package:flutter_ecommerce/src/widgets/components/side_drawer.dart';
+import 'package:provider/provider.dart';
 
 class ProductScreen extends StatefulWidget {
   final int _productId;
@@ -19,10 +22,9 @@ class _ProductScreenSate extends State<ProductScreen> {
   bool _showSearch = false;
   int _productId;
   bool _reachBottom = false;
+  ScrollController _controller;
 
   _ProductScreenSate(this._productId);
-
-  ScrollController _controller;
 
   @override
   void initState() {
@@ -52,6 +54,8 @@ class _ProductScreenSate extends State<ProductScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final _products = Provider.of<ProductsService>(context);
+    final ProductModel _product = _products.getProduct(widget._productId);
     final Color _white = Colors.white;
     final Color _themeBlue = Theme.of(context).buttonColor;
 
@@ -61,8 +65,8 @@ class _ProductScreenSate extends State<ProductScreen> {
       },
       child: Scaffold(
         drawer: sideDrawer(context),
-        appBar: _appBar(),
-        body: ProductContent(_controller),
+        appBar: _appBar(_product.brandName),
+        body: ProductContent(_controller, _product),
         floatingActionButton:
             ProductButtonCard(_reachBottom, _white, _themeBlue),
         floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
@@ -70,10 +74,10 @@ class _ProductScreenSate extends State<ProductScreen> {
     );
   }
 
-  Widget _appBar() {
+  Widget _appBar(String brandName) {
     return AppBar(
       centerTitle: true,
-      title: _showSearch ? searchInput(context) : Text('PRODUCT'),
+      title: _showSearch ? searchInput(context) : Text(brandName),
       actions: <Widget>[
         IconButton(
           icon: _showSearch ? Icon(Icons.close) : Icon(Icons.search),
