@@ -13,6 +13,7 @@ import 'package:flutter_ecommerce/src/screens/register_screen.dart';
 import 'package:flutter_ecommerce/src/screens/start_screen.dart';
 import 'package:flutter_ecommerce/src/screens/swipe_screen.dart';
 
+import 'controllers/cart/cart_controller.dart';
 import 'controllers/swipe/swipe_controller.dart';
 
 class App extends StatefulWidget {
@@ -34,6 +35,7 @@ class _AppState extends State<App> {
         Provider<AuthorsService>(builder: (_) => AuthorsService()),
         Provider<SalesService>(builder: (_) => SalesService()),
         Provider<ProductsService>(builder: (_) => ProductsService()),
+        ChangeNotifierProvider<CartService>(builder: (_) => CartService()),
       ],
       child: RunMaterialApp(),
     );
