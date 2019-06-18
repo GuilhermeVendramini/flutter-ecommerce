@@ -58,8 +58,6 @@ class _ProductScreenSate extends State<ProductScreen> {
   Widget build(BuildContext context) {
     final _products = Provider.of<ProductsService>(context);
     final ProductModel _product = _products.getProduct(widget._productId);
-    final Color _white = Colors.white;
-    final Color _themeBlue = Theme.of(context).buttonColor;
 
     return WillPopScope(
       onWillPop: () async {
@@ -70,7 +68,7 @@ class _ProductScreenSate extends State<ProductScreen> {
         appBar: _appBar(_product.brandName),
         body: ProductContent(_controller, _product),
         floatingActionButton:
-            ProductButtonCard(_product.id, _reachBottom, _white, _themeBlue),
+            ProductButtonCard(_product.id, _reachBottom),
         floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
       ),
     );
