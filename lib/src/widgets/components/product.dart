@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_ecommerce/src/controllers/cart/cart_controller.dart';
+import 'package:flutter_ecommerce/src/controllers/products/products_controller.dart';
 import 'package:provider/provider.dart';
 
 class ProductButtonCard extends StatefulWidget {
@@ -21,9 +22,11 @@ class _ProductButtonCardState extends State<ProductButtonCard> {
   @override
   Widget build(BuildContext context) {
     final _cart = Provider.of<CartService>(context);
+    final _products = Provider.of<ProductsService>(context);
+    final _product = _products.getProduct(widget._productId);
     return GestureDetector(
       onTap: () {
-        _cart.addItemCard(widget._productId, 1);
+        _cart.addItemCard(_product, 1);
         Future.delayed(const Duration(milliseconds: 300), () {
           setState(() {
             _color = Colors.white;
@@ -45,7 +48,7 @@ class _ProductButtonCardState extends State<ProductButtonCard> {
         ),
         child: widget._reachBottom
             ? Text(
-                'ADD TO CARD',
+                'ADD TO CART',
                 style: TextStyle(
                   fontWeight: FontWeight.w400,
                   color: _themeBlue,

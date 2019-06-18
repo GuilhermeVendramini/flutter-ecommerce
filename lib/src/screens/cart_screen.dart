@@ -17,6 +17,8 @@ class CartScreen extends StatefulWidget {
 class _CartScreenSate extends State<CartScreen> {
   @override
   Widget build(BuildContext context) {
+    final double deviceWidth = MediaQuery.of(context).size.width;
+    final double targetWidth = deviceWidth > 650.0 ? 600.0 : deviceWidth * 0.95;
     return WillPopScope(
       onWillPop: () async {
         return true;
@@ -25,7 +27,20 @@ class _CartScreenSate extends State<CartScreen> {
         backgroundColor: Colors.white,
         drawer: sideDrawer(context),
         appBar: _appBar(),
-        body: _listCartItems(),
+        body: Center(
+          child: Container(
+            width: targetWidth,
+            child: Column(
+              children: <Widget>[
+                Expanded(
+                  child: _listCartItems(),
+                ),
+                _cartTotal(),
+                _cartCheckout(),
+              ],
+            ),
+          ),
+        ),
       ),
     );
   }
@@ -34,6 +49,39 @@ class _CartScreenSate extends State<CartScreen> {
     return AppBar(
       centerTitle: true,
       title: Text('CART'),
+    );
+  }
+
+  Widget _cartTotal() {
+    return Consumer<CartService>(
+      builder: (context, cart, _) => Container(
+            height: 50.0,
+            alignment: Alignment.center,
+            decoration: BoxDecoration(
+                border: Border(
+              top: BorderSide(color: Colors.grey[200]),
+              bottom: BorderSide(color: Colors.grey[200]),
+            )),
+            padding: EdgeInsets.all(10.0),
+            child: CommonSubTitleContent("TOTAL \$${cart.getTotalOrder}"),
+          ),
+    );
+  }
+
+  Widget _cartCheckout() {
+    return Container(
+      height: 50.0,
+      margin: EdgeInsets.all(10.0),
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.all(Radius.circular(25.0)),
+        color: ThemeData.dark().buttonColor,
+      ),
+      alignment: Alignment.center,
+      padding: EdgeInsets.all(10.0),
+      child: Text(
+        "CHECKOUT",
+        style: TextStyle(fontSize: 20.0),
+      ),
     );
   }
 
@@ -51,15 +99,12 @@ class _CartScreenSate extends State<CartScreen> {
   Widget _cartItem(CartItemModel cartItem) {
     final _products = Provider.of<ProductsService>(context);
     final _product = _products.getProduct(cartItem.productId);
-    final double deviceWidth = MediaQuery.of(context).size.width;
-    final double targetWidth = deviceWidth > 650.0 ? 600.0 : deviceWidth * 0.95;
 
     return Center(
       child: Container(
         decoration: BoxDecoration(
           border: Border(bottom: BorderSide(color: Colors.grey[200])),
         ),
-        width: targetWidth,
         padding:
             EdgeInsets.only(top: 20.0, bottom: 20.0, left: 10.0, right: 10.0),
         child: Wrap(
@@ -129,9 +174,11 @@ class _CartScreenSate extends State<CartScreen> {
   }
 
   Widget _actionAddQuantityItem(CartService _cart, CartItemModel cartItem) {
+    final _products = Provider.of<ProductsService>(context);
+    final _product = _products.getProduct(cartItem.productId);
     return GestureDetector(
       onTap: () {
-        _cart.addItemCard(cartItem.productId, 1);
+        _cart.addItemCard(_product, 1);
       },
       child: Icon(
         Icons.add,
@@ -142,9 +189,11 @@ class _CartScreenSate extends State<CartScreen> {
   }
 
   Widget _actionRemoveQuantityItem(CartService _cart, CartItemModel cartItem) {
+    final _products = Provider.of<ProductsService>(context);
+    final _product = _products.getProduct(cartItem.productId);
     return GestureDetector(
       onTap: () {
-        _cart.removeQuantityItemCard(cartItem.productId);
+        _cart.removeQuantityItemCard(_product);
       },
       child: Icon(
         Icons.remove,
@@ -155,9 +204,11 @@ class _CartScreenSate extends State<CartScreen> {
   }
 
   Widget _actionRemoveItem(CartService _cart, CartItemModel cartItem) {
+    final _products = Provider.of<ProductsService>(context);
+    final _product = _products.getProduct(cartItem.productId);
     return GestureDetector(
       onTap: () {
-        _cart.removeItemCard(cartItem.id);
+        _cart.removeItemCard(_product);
       },
       child: Container(
         padding: EdgeInsets.all(10.0),
