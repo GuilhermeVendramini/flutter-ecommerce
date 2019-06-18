@@ -3,23 +3,19 @@ import 'package:flutter_ecommerce/src/controllers/cart/cart_controller.dart';
 import 'package:provider/provider.dart';
 
 class ProductButtonCard extends StatelessWidget {
+  final int _productId;
   final bool _reachBottom;
   final Color _white;
   final Color _themeBlue;
 
-  ProductButtonCard(this._reachBottom, this._white, this._themeBlue);
+  ProductButtonCard(this._productId, this._reachBottom, this._white, this._themeBlue);
 
   @override
   Widget build(BuildContext context) {
     final _cart = Provider.of<CartService>(context);
-    final _currentCart = _cart.getCart();
-    if(_currentCart != null && _currentCart.length > 0) {
-      print(_currentCart.last.id);
-    }
     return GestureDetector(
       onTap: () {
-        _cart.addItemToCard(1, 2);
-        print("Container clicked");
+        _cart.addItemCard(_productId, 1);
       },
       child: AnimatedContainer(
         duration: Duration(milliseconds: 500),
