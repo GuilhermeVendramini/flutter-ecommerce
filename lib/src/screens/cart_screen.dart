@@ -3,6 +3,7 @@ import 'package:flutter_ecommerce/src/controllers/cart/cart_controller.dart';
 import 'package:flutter_ecommerce/src/controllers/products/products_controller.dart';
 import 'package:flutter_ecommerce/src/models/cart_item_model.dart';
 import 'package:flutter_ecommerce/src/models/product_model.dart';
+import 'package:flutter_ecommerce/src/screens/end_screen.dart';
 import 'package:flutter_ecommerce/src/widgets/components/side_drawer.dart';
 import 'package:flutter_ecommerce/src/widgets/elements/common.dart';
 import 'package:provider/provider.dart';
@@ -36,7 +37,13 @@ class _CartScreenSate extends State<CartScreen> {
                   child: _listCartItems(),
                 ),
                 _cartTotal(),
+                SizedBox(
+                  height: 10.0,
+                ),
                 _cartCheckout(),
+                SizedBox(
+                  height: 10.0,
+                ),
               ],
             ),
           ),
@@ -71,16 +78,24 @@ class _CartScreenSate extends State<CartScreen> {
   Widget _cartCheckout() {
     return Container(
       height: 50.0,
-      margin: EdgeInsets.all(10.0),
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.all(Radius.circular(25.0)),
-        color: ThemeData.dark().buttonColor,
-      ),
-      alignment: Alignment.center,
-      padding: EdgeInsets.all(10.0),
-      child: Text(
-        "CHECKOUT",
-        style: TextStyle(fontSize: 20.0),
+      width: 300.0,
+      child: RaisedButton(
+        child: Text(
+          'CHECKOUT',
+          style: TextStyle(
+            fontWeight: FontWeight.w300,
+          ),
+        ),
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(30.0),
+        ),
+        onPressed: () {
+          Navigator.of(context).pop();
+          Route route = MaterialPageRoute(
+            builder: (context) => EndScreen(),
+          );
+          Navigator.push(context, route);
+        },
       ),
     );
   }

@@ -67,8 +67,7 @@ class _ProductScreenSate extends State<ProductScreen> {
         drawer: sideDrawer(context),
         appBar: _appBar(_product.brandName),
         body: ProductContent(_controller, _product),
-        floatingActionButton:
-            ProductButtonCard(_product.id, _reachBottom),
+        floatingActionButton: ProductButtonCard(_product.id, _reachBottom),
         floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
       ),
     );
